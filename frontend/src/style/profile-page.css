@@ -1,0 +1,255 @@
+.page-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.page-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #8a60ff, #f43f5e);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.page-subtitle {
+  margin-top: 0.8rem;
+  color: #64748b;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 90px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent), var(--primary));
+  border-radius: 2px;
+}
+
+.profile-card {
+  max-width: 600px;
+  margin: auto;
+  padding: 3rem;
+  border-radius: 1.8rem;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(18px);
+  box-shadow:
+    0 20px 60px rgba(138, 96, 255, 0.18);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.profile-card:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 30px 80px rgba(138, 96, 255, 0.28);
+}
+
+
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.6rem;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: #334155;
+}
+
+input {
+  padding: 1rem 1.2rem;
+  border-radius: 1rem;
+  border: 2px solid #e2e8f0;
+  font-size: 1.05rem;
+  background: white;
+  transition: all 0.3s ease;
+}
+
+input:disabled {
+  background: #f8fafc;
+  color: #475569;
+}
+
+input:hover {
+  border-color: #8a60ff;
+}
+
+input:focus {
+  outline: none;
+  border-color: #f43f5e;
+  box-shadow: 0 0 0 4px rgba(244, 63, 94, 0.15);
+}
+
+.btn-primary {
+  margin-top: 2rem;
+  width: 100%;
+  padding: 1.2rem;
+  border-radius: 1.2rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #8a60ff, #f43f5e);
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.35s ease;
+  box-shadow: 0 15px 40px rgba(138, 96, 255, 0.35);
+}
+
+.btn-primary:hover {
+  transform: translateY(-4px) scale(1.04);
+  box-shadow: 0 25px 60px rgba(138, 96, 255, 0.45);
+}
+
+.sidebar-menu a {
+  transition: all 0.3s ease;
+}
+
+.sidebar-menu a:hover {
+  transform: translateX(6px);
+}
+
+.sidebar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(90deg,
+      #f97316,
+      #ec4899,
+      #8b5cf6);
+  border-radius: 1.8rem 1.8rem 0 0;
+}
+
+.sidebar {
+
+  overflow: hidden;
+}
+
+.sidebar::after {
+  content: "";
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.15), transparent 70%);
+  pointer-events: none;
+}
+
+.content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(90deg,
+      #f97316,
+      #ec4899,
+      #8b5cf6);
+  border-radius: 1.8rem 1.8rem 0 0;
+}
+
+.content {
+  position: relative;
+  overflow: hidden;
+}
+
+.content::after {
+  content: "";
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.15), transparent 70%);
+  pointer-events: none;
+}
+
+.form-group {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}
+
+label {
+  font-weight: 600;
+}
+
+input {
+  padding: 0.65rem 0.9rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border);
+  font-size: 1rem;
+}
+
+input:disabled {
+  background: #f1f5f9;
+  color: var(--text-light);
+}
+
+.btn-primary {
+  margin-top: 1.5rem;
+  padding: 0.7rem 1.8rem;
+  border: none;
+  border-radius: 0.6rem;
+  background: var(--primary);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background: #4338ca;
+}
+
+.divider {
+  margin: 2rem 0;
+  border: none;
+  border-top: 1px dashed var(--border);
+}
+
+
+
+@media (max-width: 768px) {
+
+  .page-title {
+    font-size: 2.2rem;
+  }
+
+  .profile-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .form-group {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-title {
+    font-size: 1.8rem;
+  }
+
+  .profile-card {
+    padding: 1.5rem 1rem;
+  }
+}
