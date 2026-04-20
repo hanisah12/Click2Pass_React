@@ -84,7 +84,7 @@ const LandingPage = () => {
           day.
         </p>
         <button onClick={() => navigate("/form")} className="btn-primary">
-          Apply for Pass
+          Apply for Pass Now
         </button>
       </section>
 
