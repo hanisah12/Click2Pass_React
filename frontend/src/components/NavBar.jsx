@@ -14,15 +14,15 @@ const NavBar = () => {
           </div>
           <ul className="nav-menu">
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/landing-page">Home</Link>
             </li>
             <li>
-              <Link to="/form" className="active">
+              <Link to="/form">
                 Apply Pass
               </Link>
             </li>
             <li>
-              <Link to="/my-pass">My Passes</Link>
+              <Link to="/my-passes">My Passes</Link>
             </li>
             <li>
               <Link to="/profile">Profile</Link>

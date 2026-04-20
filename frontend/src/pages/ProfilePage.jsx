@@ -1,49 +1,52 @@
 import React from "react";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
-import "../style/my-passes.css"
+import "../style/profile-page.css";
+import { NavLink, Link } from "react-router-dom";
+import { User, Ticket, Lock, LogOut } from "lucide-react";
 
 const ProfilePage = () => {
   return (
-    <div>
-        <NavBar/>
+    <div className="profile-page">
+      <NavBar />
+      
       <div className="main-layout">
-        <aside className="sidebar">
+        <aside className="sidebar animate-fade-in">
           <div className="user-profile">
             <div className="avatar">
-              <i className="fas fa-user-circle"></i>
+              <User size={40} />
             </div>
             <div className="user-info">
               <h3>Welcome,</h3>
-              <span id="userName">User</span>
+              <div className="user-name">sidhu S</div>
             </div>
           </div>
 
           <ul className="sidebar-menu">
             <li>
-              <a href="profile.html" className="active">
-                <i className="fas fa-user"></i> Profile
-              </a>
+              <NavLink to="/profile">
+                <User size={18} /> Profile
+              </NavLink>
             </li>
             <li>
-              <a href="my-passes.html">
-                <i className="fas fa-ticket-alt"></i> My Passes
-              </a>
+              <NavLink to="/my-passes">
+                <Ticket size={18} /> My Passes
+              </NavLink>
             </li>
             <li>
-              <a href="edit_profile.html">
-                <i className="fas fa-lock"></i> Edit Profile
-              </a>
+              <NavLink to="/edit-profile">
+                <Lock size={18} /> Edit Profile
+              </NavLink>
             </li>
             <li>
-              <a href="#" id="logoutLink">
-                <i className="fas fa-sign-out-alt"></i> Logout
-              </a>
+              <Link to="/">
+                <LogOut size={18} /> Logout
+              </Link>
             </li>
           </ul>
         </aside>
 
-        <main className="content">
+        <main className="content animate-fade-in">
           <div className="page-header">
             <h2 className="page-title">My Profile</h2>
             <p className="page-subtitle">
@@ -51,32 +54,33 @@ const ProfilePage = () => {
             </p>
           </div>
 
-          <form className="profile-card">
+          <div className="profile-card">
             <div className="form-group">
               <label>Full Name</label>
-              <input type="text" id="profileName" placeholder="Enter Your Name"/>
+              <input type="text" value="sidhu S" readOnly />
             </div>
 
             <div className="form-group">
               <label>Email Address</label>
-              <input type="email" id="profileEmail" placeholder="Enter Your Email Address" />
+              <input type="email" value="sidhu2003@gmail.com" readOnly />
             </div>
 
             <div className="form-group">
               <label>Mobile Number</label>
-              <input type="tel" id="profilePhone" placeholder="Enter Your Mobile Number" />
+              <input type="tel" value="9128734650" readOnly />
             </div>
 
-            <a href="edit_profile.html" className="btn-primary">
-              {" "}
-              Edit Profile{" "}
-            </a>
-          </form>
+            <Link to="/edit-profile" className="btn-primary">
+              Edit Profile
+            </Link>
+          </div>
         </main>
       </div>
-      <Footer/>
+
+      <Footer />
     </div>
   );
 };
 
 export default ProfilePage;
+

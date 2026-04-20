@@ -1,7 +1,9 @@
 import React from "react";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
-import "../style/edit-profile.css"
+import "../style/edit-profile.css";
+import { NavLink, Link } from "react-router-dom";
+import { User, Ticket, Lock, LogOut } from "lucide-react";
 
 const EditProfile = () => {
   return (
@@ -11,38 +13,34 @@ const EditProfile = () => {
         <aside className="sidebar">
           <div className="user-profile">
             <div className="avatar">
-              <i className="fas fa-user-circle"></i>
+              <User size={40} />
             </div>
             <div className="user-info">
               <h3>Welcome,</h3>
-              <span id="userName">User</span>
+              <div className="user-name">sidhu S</div>
             </div>
           </div>
 
           <ul className="sidebar-menu">
             <li>
-              <a href="profile.html">
-                <i className="fas fa-user"></i>
-                Profile
-              </a>
+              <NavLink to="/profile">
+                <User size={18} /> Profile
+              </NavLink>
             </li>
             <li>
-              <a href="my-passes.html">
-                <i className="fas fa-ticket-alt"></i>
-                My Passes
-              </a>
+              <NavLink to="/my-passes">
+                <Ticket size={18} /> My Passes
+              </NavLink>
             </li>
             <li>
-              <a href="edit_profile.html" className="active">
-                <i className="fas fa-lock"></i>
-                Edit Profile
-              </a>
+              <NavLink to="/edit-profile">
+                <Lock size={18} /> Edit Profile
+              </NavLink>
             </li>
             <li>
-              <a href="login.html">
-                <i className="fas fa-sign-out-alt"></i>
-                Logout
-              </a>
+              <Link to="/">
+                <LogOut size={18} /> Logout
+              </Link>
             </li>
           </ul>
         </aside>
