@@ -2,42 +2,54 @@
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
-  padding-top: 100px;
   background: linear-gradient(135deg, #f8f9ff 0%, #f1f0ff 100%);
 }
 
 .my-passes-section {
-  max-width: 1000px;
-  margin: 0 auto 4rem;
+  max-width: 1100px;
+  margin: 0 auto 5rem;
   padding: 0 1.5rem;
   position: relative;
   z-index: 1;
 }
 
-.section-title {
-  font-size: 3.5rem;
+/* Main white container effect from image */
+.my-passes-section {
+  background: #ffffff;
+  border-radius: 60px;
+  padding: 5rem 3rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.01);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-title-1 {
+  font-size: 3.8rem;
   font-weight: 800;
-  background: linear-gradient(135deg, #8a60ff, #f43f5e);
+  background: linear-gradient(135deg, #a855f7, #ec4899);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  margin-bottom: 0.75rem;
-  letter-spacing: -1.5px;
-  text-align: center;
+  margin-bottom: 1rem;
+  letter-spacing: -2px;
 }
 
 .section-subtitle {
   color: #718096;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   font-weight: 500;
-  margin-bottom: 3rem;
-  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 #passesContainer {
   display: grid;
-  gap: 2.5rem;
-  max-width: 850px;
+  gap: 3rem;
+  max-width: 950px;
   margin: 0 auto;
 }
 
@@ -45,35 +57,55 @@
   background: #ffffff;
   border-radius: 40px;
   padding: 0;
-  box-shadow: 0 15px 45px rgba(138, 96, 255, 0.08);
+  box-shadow: 0 15px 40px rgba(138, 96, 255, 0.06);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.8);
+  border: 1px solid #f1f5f9;
   position: relative;
 }
 
 .pass-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 25px 60px rgba(138, 96, 255, 0.15);
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 30px 70px rgba(138, 96, 255, 0.12);
 }
 
 .pass-card-top-line {
-  height: 6px;
-  background: linear-gradient(90deg, #8a60ff, #f43f5e);
+  height: 8px;
+  background: linear-gradient(90deg, #f43f5e, #fb923c, #fcd34d);
   width: 100%;
+}
+
+/* Expired Card Styles */
+.expired-card {
+  background: #fcfcfc;
+  opacity: 0.85;
+}
+
+.expired-card .pass-card-top-line {
+  background: #94a3b8;
+}
+
+.expired-card .pass-title {
+  background: none;
+  -webkit-text-fill-color: initial;
+  color: #94a3b8;
+}
+
+.badge-expired {
+  color: #f43f5e !important;
 }
 
 .pass-card-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2.5rem 3.5rem 1rem;
+  padding: 2.8rem 4rem 1.2rem;
 }
 
 .pass-title {
-  font-size: 2.2rem;
+  font-size: 2.4rem;
   font-weight: 800;
-  background: linear-gradient(135deg, #8a60ff, #f43f5e);
+  background: linear-gradient(135deg, #ec4899, #8b5cf6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -82,29 +114,31 @@
 
 .pass-days-badge {
   color: #10b981;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   font-weight: 700;
 }
 
 .pass-card-body {
-  padding: 1rem 3.5rem 3rem;
+  padding: 1.2rem 4rem 3.5rem;
 }
 
 .pass-dates {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  margin-bottom: 2.5rem;
+  gap: 4rem;
+  margin-bottom: 3rem;
   position: relative;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #f1f5f9;
 }
 
-/* Vertical dashed line effect from image */
+/* Vertical dashed line effect */
 .pass-dates::after {
   content: "";
   position: absolute;
   right: -2rem;
-  top: -10%;
-  height: 120%;
+  top: 10%;
+  height: 80%;
   width: 1px;
   border-right: 1px dashed #e2e8f0;
 }
@@ -112,71 +146,72 @@
 .date-group {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.6rem;
 }
 
 .date-label {
-  color: #718096;
-  font-size: 1rem;
+  color: #94a3b8;
+  font-size: 1.1rem;
   font-weight: 500;
   margin: 0;
 }
 
 .date-value {
   color: #1a202c;
-  font-size: 1.25rem;
+  font-size: 1.4rem;
   font-weight: 800;
   margin: 0;
 }
 
-.pass-button-container {
-  margin-top: 1rem;
-}
-
 .btn-view-pass {
   width: 100%;
-  padding: 1.5rem;
-  background: linear-gradient(90deg, #8a60ff, #f43f5e);
+  padding: 1.6rem;
+  background: linear-gradient(90deg, #a855f7, #ec4899);
   color: white;
   border: none;
-  border-radius: 50px;
-  font-size: 1.25rem;
+  border-radius: 25px;
+  font-size: 1.3rem;
   font-weight: 700;
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 10px 25px rgba(244, 63, 94, 0.2);
+  box-shadow: 0 10px 30px rgba(236, 72, 153, 0.25);
 }
 
 .btn-view-pass:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 15px 35px rgba(244, 63, 94, 0.3);
-  filter: brightness(1.05);
+  transform: translateY(-4px);
+  box-shadow: 0 18px 45px rgba(236, 72, 153, 0.35);
+  filter: brightness(1.1);
 }
 
-/* Custom separator line at bottom of dates */
-.pass-dates {
-  padding-bottom: 1.5rem;
-  border-bottom: 1px solid #f7fafc;
+@media (max-width: 992px) {
+  .my-passes-section {
+    padding: 3rem 2rem;
+    border-radius: 40px;
+  }
 }
 
 @media (max-width: 768px) {
   .section-title {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
   }
 
   .pass-card-header {
-    padding: 2rem 2rem 1rem;
+    padding: 2.2rem 2.2rem 1rem;
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.5rem;
+    gap: 0.8rem;
   }
 
   .pass-title {
-    font-size: 1.8rem;
+    font-size: 1.9rem;
   }
 
   .pass-card-body {
-    padding: 1rem 2rem 2rem;
+    padding: 1.2rem 2.2rem 2.5rem;
+  }
+
+  .pass-dates {
+    gap: 2rem;
   }
 
   .pass-dates::after {

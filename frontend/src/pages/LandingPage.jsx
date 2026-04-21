@@ -11,18 +11,20 @@ const LandingPage = () => {
   return (
     <div className="landing-page">
       <NavBar />
-      
+
       <div className="hero-section">
         <div className="hero-content animate-fade-in">
           <div className="city-badge">
-            <MapPinned size={14} className="city-badge-icon" /> Exclusively for Chennai
+            <MapPinned size={14} className="city-badge-icon" /> Exclusively for
+            Chennai
           </div>
           <h1>Seamless Travel. Instant Passes.</h1>
-          <p>
-            Get your monthly bus passes in just a few clicks. Welcome to
-            Click2Pass, your digital solution for easy commuting in
-            <strong> Chennai</strong>.
-          </p>
+          <div className="p-1" >
+            <p >
+              Get your monthly bus passes in just a few clicks. Welcome to
+              Click2Pass, your digital solution for easy commuting in Chennai .
+            </p>
+          </div>
           <button onClick={() => navigate("/form")} className="hero-cta">
             Apply for Your Pass Now
           </button>
