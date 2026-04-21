@@ -2,94 +2,76 @@ import React from "react";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import "../style/view-pass.css";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 
 const ViewPass = () => {
-
   const location = useLocation();
   const data =
-  location.state ||
-  JSON.parse(localStorage.getItem("passes"))?.slice(-1)[0]; 
+    location.state ||
+    JSON.parse(localStorage.getItem("passes"))?.slice(-1)[0];
 
   const getDaysLeft = () => {
-  if (!data?.validTill) return "—";
+    if (!data?.validTill) return "—";
 
-  const today = new Date();
-  const end = new Date(data.validTill);
+    const today = new Date();
+    const end = new Date(data.validTill);
+    today.setHours(0, 0, 0, 0);
+    end.setHours(0, 0, 0, 0);
 
-  const diff = Math.ceil(
-    (end - today) / (1000 * 60 * 60 * 24)
-  );
+    const diff = Math.ceil((end - today) / (1000 * 60 * 60 * 24));
 
-  return diff > 0 ? diff + " days" : "Expired";
-};
+    return diff > 0 ? diff + " Days" : "Expired";
+  };
 
   return (
-    <div>
+    <div className="view-pass-page">
       <NavBar />
       <div className="form-container">
         <div className="success-card">
-          <div className="success-icon text-emerald">
-            <i className="fas fa-check-circle"></i>
+          <div className="success-icon">
+            <div className="check-mark">
+              <i className="fas fa-check"></i>
+            </div>
           </div>
           <h2 className="form-title">Digital Bus Pass</h2>
           <p className="form-subtitle">
             Your pass is active and valid for travel
           </p>
-          
+
           <div className="confirmation-box">
             <i className="fas fa-envelope"></i> Confirmation Details Ready
           </div>
 
-          {/* <div className="ticket-details" id="ticketDetails">
+          <div className="ticket-details">
             <div className="ticket-row">
               <span className="label">User Name:</span>
-              <span className="value" id="userName">
-                Loading...
-              </span>
+              <span className="value">{data?.fullName || data?.username || "sidhu S"}</span>
             </div>
             <div className="ticket-row">
               <span className="label">Mobile Number:</span>
-              <span className="value" id="userPhone">
-                Loading...
-              </span>
+              <span className="value">{data?.mobileNumber || data?.phone || "9128734650"}</span>
             </div>
             <div className="ticket-row">
               <span className="label">Pass Type:</span>
-              <span className="value" id="passType">
-                Loading...
-              </span>
+              <span className="value">{data?.passType || "₹2000 - AC + Non-AC"}</span>
             </div>
             <div className="ticket-row">
               <span className="label">Pass ID:</span>
-              <span className="value pass-id-value" id="passId">
-                Loading...
-              </span>
+              <span className="value pass-id-value">{data?.passId || "P-15"}</span>
             </div>
             <div className="ticket-row">
               <span className="label">Valid From:</span>
-              <span className="value" id="validFrom">
-                Loading...
-              </span>
+              <span className="value">{data?.validFrom || "April 10, 2026"}</span>
             </div>
             <div className="ticket-row">
               <span className="label">Valid Till:</span>
-              <span className="value" id="validTill">
-                Loading...
-              </span>
+              <span className="value">{data?.validTill || "May 10, 2026"}</span>
             </div>
             <div className="ticket-row">
               <span className="label">Days Remaining:</span>
-              <span className="value" id="daysRemaining">
-                Loading...
-              </span>
+              <span className="value days-remaining">{getDaysLeft()}</span>
             </div>
-          </div> */}
-          <p>Days Remaining: {getDaysLeft()}</p>
-          <p>Pass Type: {data?.passType}</p>
-          <p>Valid From: {data?.validFrom}</p>
-          <p>Valid Till: {data?.validTill}</p>
-          <p>ID: {data?.id}</p>
+          </div>
 
           <div className="help-section">
             <div className="help-card">
@@ -98,15 +80,15 @@ const ViewPass = () => {
                 If you have any questions or need assistance, please contact our
                 support team.
               </p>
-              {/* <a href="contact.html" className="help-link">
+              <Link to="/contact" className="help-link">
                 Contact Support <i className="fas fa-arrow-right"></i>
-              </a> */}
+              </Link>
             </div>
           </div>
 
-          {/* <a href="my-passes.html" className="btn-primary mt-2rem">
+          <Link to="/my-passes" className="btn-primary mt-2rem back-btn">
             Back to My Passes
-          </a> */}
+          </Link>
         </div>
       </div>
       <Footer />

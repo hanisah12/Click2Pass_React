@@ -10,20 +10,29 @@
   padding: 0;
 }
 
+.hero {
+  margin-top: 0;
+  padding-top: 120px; /* space below navbar */
+}
+
+.hero-section {
+  padding-top: 120px;  /* gives space below navbar */
+}
+
 /* Hero Section */
 .hero-section {
   position: relative;
   background: linear-gradient(135deg, #7c3aed 0%, #a855f7 25%, #ec4899 75%, #f43f5e 100%);
   color: white;
-  padding: 4rem 2rem 8rem;
+  padding: 2rem 2rem 8rem;
   text-align: center;
   overflow: hidden;
   min-height: 600px;
   display: flex;
   align-items: center;
   justify-content: center;
-  /* margin-top: -80px;
-  padding-top: 80px;
+  /* margin-top: 80px; */
+  /* padding-top: 80px;
   width: 100%; */
 }
 

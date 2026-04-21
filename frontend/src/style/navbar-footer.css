@@ -108,7 +108,33 @@ a:focus-visible {
 
 /* NavBar Styling */
 .navbar {
-  position: fixed;
+  position: fixed;   /* change from sticky */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5%;
+  z-index: 1000;
+
+  border-bottom: none;   /* remove line */
+  box-shadow: none;      /* remove shadow */
+}
+
+body {
+  padding-top: 80px;
+}
+
+.navbar {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* .top-navbar {
+  position: sticky;
   top: 0;
   left: 0;
   right: 0;
@@ -121,10 +147,11 @@ a:focus-visible {
   justify-content: space-between;
   padding: 0 5%;
   z-index: 1001;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-bottom: none; /* 🔥 remove line */
+  box-shadow: none;     /* 🔥 remove shadow */
   width: 100%;
-}
+} */
+ 
 
 .nav-brand {
   font-size: 1.8rem;

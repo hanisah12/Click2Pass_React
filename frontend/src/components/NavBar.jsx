@@ -1,8 +1,10 @@
 import React from "react";
 import "../style/navbar-footer.css";
-import { Link } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
 const NavBar = () => {
+  const location = useLocation();
+
   return (
     <div>
       <nav className="top-navbar">
@@ -14,21 +16,26 @@ const NavBar = () => {
           </div>
           <ul className="nav-menu">
             <li>
-              <Link to="/landing-page">Home</Link>
+              <NavLink to="/landing-page" className={({ isActive }) => isActive ? "active" : ""}>Home</NavLink>
             </li>
             <li>
-              <Link to="/form">
+              <NavLink to="/form" className={({ isActive }) => isActive ? "active" : ""}>
                 Apply Pass
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link to="/my-passes">My Passes</Link>
+              <NavLink 
+                to="/my-passes" 
+                className={({ isActive }) => (isActive || location.pathname === "/view-pass") ? "active" : ""}
+              >
+                My Passes
+              </NavLink>
             </li>
             <li>
-              <Link to="/profile">Profile</Link>
+              <NavLink to="/profile" className={({ isActive }) => isActive ? "active" : ""}>Profile</NavLink>
             </li>
             <li>
-              <Link to="/contact">Contact</Link>
+              <NavLink to="/contact" className={({ isActive }) => isActive ? "active" : ""}>Contact</NavLink>
             </li>
           </ul>
           <div className="hamburger" id="hamburger">
