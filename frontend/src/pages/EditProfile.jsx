@@ -17,7 +17,7 @@ const EditProfile = () => {
             </div>
             <div className="user-info">
               <h3>Welcome,</h3>
-              <div className="user-name">sidhu S</div>
+              <div className="user-name">Hanisha</div>
             </div>
           </div>
 

@@ -113,25 +113,31 @@ a:focus-visible {
   left: 0;
   right: 0;
   height: 80px;
-  background: rgba(255, 255, 255, 0.9);
+  background: #ffffff;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 5%;
-  z-index: 1000;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  z-index: 1001;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  width: 100%;
 }
 
 .nav-brand {
   font-size: 1.8rem;
   font-weight: 800;
-  background: linear-gradient(135deg, #8a60ff 0%, #f43f5e 100%);
+  background: linear-gradient(135deg, #7c3aed 0%, #f43f5e 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-decoration: none;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  letter-spacing: -0.5px;
 }
 
 .nav-links {

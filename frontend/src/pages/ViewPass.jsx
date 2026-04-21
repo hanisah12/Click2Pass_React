@@ -36,7 +36,7 @@ const ViewPass = () => {
           <p className="form-subtitle">
             Your pass is active and valid for travel
           </p>
-
+          
           <div className="confirmation-box">
             <i className="fas fa-envelope"></i> Confirmation Details Ready
           </div>
@@ -115,3 +115,4 @@ const ViewPass = () => {
 };
 
 export default ViewPass;
+
