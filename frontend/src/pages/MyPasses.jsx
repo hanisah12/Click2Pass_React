@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
-import "../style/my-passes.css";
 import { useNavigate } from "react-router-dom";
+import "../style/my-passes.css";
 
 const MyPasses = () => {
   const navigate = useNavigate();
@@ -10,10 +10,12 @@ const MyPasses = () => {
 
   useEffect(() => {
     const storedPasses = JSON.parse(localStorage.getItem("passes")) || [];
+    // If no passes in storage, let's add some mock data if needed for display
     setPasses(storedPasses);
   }, []);
 
   const getDaysRemaining = (validTill) => {
+    if (!validTill) return 0;
     const today = new Date();
     const till = new Date(validTill);
     today.setHours(0, 0, 0, 0);
@@ -24,77 +26,77 @@ const MyPasses = () => {
   };
 
   const getPassTypeLabel = (passType) => {
-    return passType === 2000 || passType === "2000" ? "AC + Non-AC Pass" : "Non-AC Pass";
+    return passType === 2000 || passType === "2000"
+      ? "AC + Non-AC Pass"
+      : "Non-AC Pass";
   };
 
   return (
-    <div className="my-passes-page">
+    <div className="mp-v2-page">
       <NavBar />
-      <div className="main-layout">
-        <main className="content">
-          <section className="my-passes-section">
-            <div className="section-header">
-              <h2 className="section-title-1">My Active Passes</h2>
-              <p className="section-subtitle">
-                Your active bus passes and travel history
+
+      <div className="mp-v2-wrapper">
+        <header className="mp-v2-header">
+          <h2 className="mp-v2-title">My Active Passes</h2>
+          <p className="mp-v2-subtitle">
+            Your active bus passes and travel history
+          </p>
+        </header>
+
+        <div className="mp-v2-container">
+          {passes.length === 0 ? (
+            <div className="mp-v2-card" style={{ textAlign: "center" }}>
+              <p className="mp-v2-subtitle">
+                No active passes found. Apply for a new pass to get started.
               </p>
             </div>
+          ) : (
+            passes.map((pass) => {
+              const daysRemaining = getDaysRemaining(pass.validTill);
+              const isExpired = daysRemaining < 0;
 
-            <div id="passesContainer">
-              {passes.length === 0 ? (
-                <p
-                  className="section-subtitle"
-                  style={{ textAlign: "center", marginTop: "2rem" }}
+              return (
+                <div
+                  key={pass.id}
+                  className={`mp-v2-card ${isExpired ? "expired" : ""}`}
                 >
-                  No active passes found. Apply for a new pass to get started.
-                </p>
-              ) : (
-                passes.map((pass) => {
-                  const daysRemaining = getDaysRemaining(pass.validTill);
-                  const isExpired = daysRemaining < 0;
-
-                  return (
-                    <div key={pass.id} className={`pass-card ${isExpired ? "expired-card" : ""}`}>
-                      <div className="pass-card-top-line"></div>
-
-                      <div className="pass-card-header">
-                        <h3 className="pass-title">
-                          {getPassTypeLabel(pass.passType)}
-                        </h3>
-                        <div className={`pass-days-badge ${isExpired ? "badge-expired" : ""}`}>
-                          {isExpired ? "Expired" : `${daysRemaining} Days Remaining`}
-                        </div>
-                      </div>
-
-                      <div className="pass-card-body">
-                        <div className="pass-dates">
-                          <div className="date-group">
-                            <p className="date-label">Valid From</p>
-                            <p className="date-value">{pass.validFrom}</p>
-                          </div>
-                          <div className="date-group">
-                            <p className="date-label">Valid Until</p>
-                            <p className="date-value">{pass.validTill}</p>
-                          </div>
-                        </div>
-
-                        <div className="pass-button-container">
-                          <button
-                            className="btn-view-pass"
-                            onClick={() => navigate("/view-pass", { state: pass })}
-                          >
-                            View Pass
-                          </button>
-                        </div>
-                      </div>
+                  <div className="mp-v2-card-header">
+                    <h3 className="mp-v2-pass-title">
+                      {getPassTypeLabel(pass.passType)}
+                    </h3>
+                    <div
+                      className={`mp-v2-status ${isExpired ? "expired" : "remaining"}`}
+                    >
+                      {isExpired
+                        ? "Expired"
+                        : `${daysRemaining} Days Remaining`}
                     </div>
-                  );
-                })
-              )}
-            </div>
-          </section>
-        </main>
+                  </div>
+
+                  <div className="mp-v2-details">
+                    <div className="mp-v2-detail-group">
+                      <span className="mp-v2-label">Valid From</span>
+                      <span className="mp-v2-value">{pass.validFrom}</span>
+                    </div>
+                    <div className="mp-v2-detail-group">
+                      <span className="mp-v2-label">Valid Until</span>
+                      <span className="mp-v2-value">{pass.validTill}</span>
+                    </div>
+                  </div>
+
+                  <button
+                    className="mp-v2-btn"
+                    onClick={() => navigate("/view-pass", { state: pass })}
+                  >
+                    View Pass
+                  </button>
+                </div>
+              );
+            })
+          )}
+        </div>
       </div>
+
       <Footer />
     </div>
   );

@@ -3,6 +3,7 @@ import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import "../style/signup-page.css";
 
+
 const SignupPage = () => {
   return (
     <div>
@@ -11,6 +12,7 @@ const SignupPage = () => {
         <div className="login-card">
           <h2 className="form-title">Create Account</h2>
           <p className="form-subtitle">Join us today! Please sign up</p>
+
 
           <form id="signupForm">
             <div className="form-group">
@@ -22,6 +24,7 @@ const SignupPage = () => {
               />
             </div>
 
+
             <div className="form-group">
               <input
                 type="email"
@@ -30,6 +33,7 @@ const SignupPage = () => {
                 required
               />
             </div>
+
 
             <div className="form-group">
               <input
@@ -40,6 +44,7 @@ const SignupPage = () => {
                 required
               />
             </div>
+
 
             <div className="form-group">
               <div className="password-container">
@@ -57,15 +62,18 @@ const SignupPage = () => {
               </small>
             </div>
 
+
             <button type="submit" className="btn-primary">
               Sign Up
             </button>
+
 
             <p
               id="signupMessage"
               className="signup-message"
             ></p>
           </form>
+
 
           <p className="signup-footer-text">
             Already have an account?
@@ -83,4 +91,8 @@ const SignupPage = () => {
   );
 };
 
+
 export default SignupPage;
+
+
+

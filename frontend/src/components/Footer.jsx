@@ -3,44 +3,73 @@ import { Link } from "react-router-dom";
 import { Mail, Phone } from "lucide-react";
 import "../style/navbar-footer.css";
 
+
 const Footer = () => {
   return (
-    <footer className="footer">
-      <div className="footer-container">
-        <div className="footer-col brand-col">
-          <h2 className="footer-logo">Click2Pass</h2>
-          <p className="footer-tagline">
-            Your trusted platform for instant bus passes and seamless commuting.
-          </p>
+    <footer className="ft-footer">
+      <div className="ft-container">
+        <div className="ft-grid">
+          {/* Brand Column */}
+          <div className="ft-col ft-brand">
+            <h2 className="ft-logo">Click<span>2Pass</span></h2>
+            <p className="ft-tagline">
+              Your trusted platform for instant bus passes and seamless commuting.
+            </p>
+          </div>
+
+
+          {/* Quick Links Column */}
+          <div className="ft-col">
+            <h4 className="ft-title">Quick Links</h4>
+            <ul className="ft-links">
+              <li><Link to="/landing-page">About Us</Link></li>
+              <li><Link to="#">Privacy Policy</Link></li>
+              <li><Link to="#">Terms of Service</Link></li>
+            </ul>
+          </div>
+
+
+          {/* Support Column */}
+          <div className="ft-col">
+            <h4 className="ft-title">Support</h4>
+            <ul className="ft-links">
+              <li><Link to="#">Help Center</Link></li>
+              <li><Link to="/contact">Contact Us</Link></li>
+              <li><Link to="#">FAQs</Link></li>
+            </ul>
+          </div>
+
+
+          {/* Contact Column */}
+          <div className="ft-col">
+            <h4 className="ft-title">Contact</h4>
+            <div className="ft-contact-info">
+              <div className="ft-contact-item">
+                <Mail className="ft-icon" size={18} />
+                <span>support@click2pass.com</span>
+              </div>
+              <div className="ft-contact-item">
+                <Phone className="ft-icon" size={18} />
+                <span>+91 1800-123-4567</span>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div className="footer-col">
-          <h4>Quick Links</h4>
-          <ul>
-            <li><Link to="/landing-page">About Us</Link></li>
-            <li><Link to="#">Privacy Policy</Link></li>
-            <li><Link to="#">Terms of Service</Link></li>
-          </ul>
-        </div>
 
-        <div className="footer-col">
-          <h4>Support</h4>
-          <ul>
-            <li><Link to="#">Help Center</Link></li>
-            <li><Link to="/contact">Contact Us</Link></li>
-            <li><Link to="#">FAQs</Link></li>
-          </ul>
-        </div>
-
-        <div className="footer-col contact-col">
-          <h4>Contact</h4>
-          <p><Mail className="footer-icon" size={18} /> support@click2pass.com</p>
-          <p><Phone className="footer-icon" size={18} /> +91 1800-123-4567</p>
+        {/* Copyright Section */}
+        <div className="ft-bottom">
+          <p>© 2025 Click2Pass Chennai. All rights reserved.</p>
         </div>
       </div>
     </footer>
   );
 };
 
+
 export default Footer;
-
+
+
+
+
+

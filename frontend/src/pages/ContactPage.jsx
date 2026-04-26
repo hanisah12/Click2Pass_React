@@ -1,56 +1,69 @@
 import React from "react";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
-import "../style/contact-page.css"
+import "../style/contact-page.css";
+
 
 const ContactPage = () => {
   return (
-    <div>
+    <div className="cp-v2-page">
       <NavBar />
-      <div className="form-container">
-        <div className="form-card">
-          <h2 className="form-title">Get in Touch</h2>
-          <p className="form-subtitle">Have a question or feedback? Let us know!</p>
+     
+      <div className="cp-v2-wrapper">
+        <div className="cp-v2-card">
+          <header className="cp-v2-header">
+            <h2 className="cp-v2-title">Get in Touch</h2>
+            <p className="cp-v2-subtitle">Have a question or feedback? Let us know!</p>
+          </header>
 
-          <form action="#">
-            <div className="form-group">
-              <label htmlFor="email">Your Email</label>
+
+          <form className="cp-v2-form" onSubmit={(e) => e.preventDefault()}>
+            <div className="cp-v2-group">
+              <label className="cp-v2-label">Your Email</label>
               <input
                 type="email"
-                id="email"
-                placeholder="Enter your email"
+                className="cp-v2-input"
+                defaultValue="sidhu2003@gmail.com"
                 required
               />
             </div>
 
-            <div className="form-group">
-              <label htmlFor="subject">Subject</label>
+
+            <div className="cp-v2-group">
+              <label className="cp-v2-label">Subject</label>
               <input
                 type="text"
-                id="subject"
+                className="cp-v2-input"
                 placeholder="What is this regarding?"
                 required
               />
             </div>
 
-            <div className="form-group">
-              <label htmlFor="message">Message</label>
+
+            <div className="cp-v2-group">
+              <label className="cp-v2-label">Message</label>
               <textarea
-                id="message"
+                className="cp-v2-textarea"
                 placeholder="Write your message here..."
                 required
               ></textarea>
             </div>
 
-            <button type="submit" className="btn-primary">
+
+            <button type="submit" className="cp-v2-btn">
               Send Message
             </button>
           </form>
         </div>
       </div>
+     
       <Footer />
     </div>
   );
 };
 
+
 export default ContactPage;
+
+
+

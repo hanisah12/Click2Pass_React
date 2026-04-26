@@ -1,93 +1,108 @@
-import React from "react";
+import React, { useState } from "react";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
-import "../style/edit-profile.css";
 import { NavLink, Link } from "react-router-dom";
-import { User, Ticket, Lock, LogOut } from "lucide-react";
+import { User, CreditCard, Lock, LogOut, Eye, EyeOff } from "lucide-react";
+import "../style/edit-profile.css";
+
 
 const EditProfile = () => {
-  return (
-    <div>
-      <NavBar />
-      <div className="main-layout">
-        <aside className="sidebar">
-          <div className="user-profile">
-            <div className="avatar">
-              <User size={40} />
-            </div>
-            <div className="user-info">
-              <h3>Welcome,</h3>
-              <div className="user-name">Hanisha</div>
-            </div>
-          </div>
+  const [showPassword, setShowPassword] = useState(false);
 
-          <ul className="sidebar-menu">
-            <li>
-              <NavLink to="/profile">
+
+  return (
+    <div className="edit-v2-page">
+      <NavBar />
+     
+      <div className="edit-v2-wrapper">
+        <div className="edit-v2-layout">
+          {/* Sidebar */}
+          <aside className="edit-v2-sidebar">
+            <div className="edit-v2-user-box">
+              <div className="edit-v2-avatar">
+                <User size={32} />
+              </div>
+              <div className="edit-v2-welcome">
+                <span>Welcome,</span>
+                <div className="edit-v2-username">sidhu S</div>
+              </div>
+            </div>
+
+
+            <nav className="edit-v2-menu">
+              <NavLink to="/profile" className={({isActive}) => `edit-v2-menu-item ${isActive ? 'active' : ''}`}>
                 <User size={18} /> Profile
               </NavLink>
-            </li>
-            <li>
-              <NavLink to="/my-passes">
-                <Ticket size={18} /> My Passes
+              <NavLink to="/my-passes" className={({isActive}) => `edit-v2-menu-item ${isActive ? 'active' : ''}`}>
+                <CreditCard size={18} /> My Passes
               </NavLink>
-            </li>
-            <li>
-              <NavLink to="/edit-profile">
+              <NavLink to="/edit-profile" className={({isActive}) => `edit-v2-menu-item ${isActive ? 'active' : ''}`}>
                 <Lock size={18} /> Edit Profile
               </NavLink>
-            </li>
-            <li>
-              <Link to="/">
+              <Link to="/" className="edit-v2-menu-item">
                 <LogOut size={18} /> Logout
               </Link>
-            </li>
-          </ul>
-        </aside>
+            </nav>
+          </aside>
 
-        <main className="content">
-          <div className="page-header">
-            <h2 className="page-title">Edit Profile</h2>
-            <p className="page-subtitle">Update your personal details securely</p>
-          </div>
 
-          <form id="editProfileForm" className="profile-card">
-            <div className="form-group">
-              <label htmlFor="name">Full Name</label>
-              <input type="text" id="name" required />
+          {/* Main Content */}
+          <main className="edit-v2-content">
+            <div className="edit-v2-header">
+              <h2 className="edit-v2-title">Edit Profile</h2>
+              <p className="edit-v2-subtitle">Update your personal details securely</p>
             </div>
 
-            <div className="form-group">
-              <label htmlFor="phone">Mobile Number</label>
-              <input type="tel" id="phone" pattern="[0-9]{10}" required />
-            </div>
 
-            <hr className="edit-divider" />
-
-            <div className="form-group">
-              <label htmlFor="password">
-                New Password (leave blank to keep current)
-              </label>
-              <div className="password-container">
-                <input type="password" id="password" />
-                <i className="fas fa-eye toggle-password" id="togglePassword"></i>
+            <form className="edit-v2-form-box">
+              <div className="edit-v2-group">
+                <label className="edit-v2-label">Full Name</label>
+                <input type="text" className="edit-v2-input" defaultValue="sidhu S" required />
               </div>
-              <small className="help-text">
-                If changing, must be 8+ characters with at least one alphabet,
-                one number, and one special character.
-              </small>
-            </div>
 
-            <button type="submit" className="btn-primary">
-              Save Changes
-            </button>
-          </form>
-        </main>
+
+              <div className="edit-v2-group">
+                <label className="edit-v2-label">Mobile Number</label>
+                <input type="tel" className="edit-v2-input" defaultValue="9128734650" required />
+              </div>
+
+
+              <hr className="edit-v2-divider" />
+
+
+              <div className="edit-v2-group">
+                <label className="edit-v2-label">New Password (leave blank to keep current)</label>
+                <div className="edit-v2-pass-container">
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    className="edit-v2-input"
+                    placeholder="Enter new password"
+                  />
+                  <div className="edit-v2-toggle" onClick={() => setShowPassword(!showPassword)}>
+                    {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+                  </div>
+                </div>
+                <p className="edit-v2-note">
+                  If changing, must be 8+ characters with at least one alphabet, one number, and one special character.
+                </p>
+              </div>
+
+
+              <button type="submit" className="edit-v2-btn">
+                Save Changes
+              </button>
+            </form>
+          </main>
+        </div>
       </div>
-
+     
       <Footer />
     </div>
   );
 };
 
+
 export default EditProfile;
+
+
+

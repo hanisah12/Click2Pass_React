@@ -1,220 +1,195 @@
-.my-passes-page {
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+
+.mp-v2-page {
   min-height: 100vh;
-  position: relative;
-  overflow-x: hidden;
-  background: linear-gradient(135deg, #f8f9ff 0%, #f1f0ff 100%);
+  background-color: #f3f7ff;
+  font-family: 'Inter', sans-serif;
 }
 
-.my-passes-section {
-  max-width: 1100px;
-  margin: 0 auto 5rem;
-  padding: 0 1.5rem;
-  position: relative;
-  z-index: 1;
+
+.mp-v2-wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 120px 1.5rem 6rem; /* Space from nav */
 }
 
-/* Main white container effect from image */
-.my-passes-section {
-  background: #ffffff;
-  border-radius: 60px;
-  padding: 5rem 3rem;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.03);
-  border: 1px solid rgba(0, 0, 0, 0.01);
-}
 
-.section-header {
+.mp-v2-header {
   text-align: center;
   margin-bottom: 4rem;
 }
 
-.section-title-1 {
-  font-size: 3.8rem;
+
+.mp-v2-title {
+  font-size: 3.5rem;
   font-weight: 800;
-  background: linear-gradient(135deg, #a855f7, #ec4899);
+  background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: 1rem;
-  letter-spacing: -2px;
+  margin-bottom: 0.75rem;
+  letter-spacing: -1.5px;
 }
 
-.section-subtitle {
-  color: #718096;
-  font-size: 1.2rem;
-  font-weight: 500;
-  max-width: 600px;
-  margin: 0 auto;
-}
 
-#passesContainer {
-  display: grid;
-  gap: 3rem;
-  max-width: 950px;
-  margin: 0 auto;
-}
-
-.pass-card {
-  background: #ffffff;
-  border-radius: 40px;
-  padding: 0;
-  box-shadow: 0 15px 40px rgba(138, 96, 255, 0.06);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  overflow: hidden;
-  border: 1px solid #f1f5f9;
-  position: relative;
-}
-
-.pass-card:hover {
-  transform: translateY(-8px) scale(1.01);
-  box-shadow: 0 30px 70px rgba(138, 96, 255, 0.12);
-}
-
-.pass-card-top-line {
-  height: 8px;
-  background: linear-gradient(90deg, #f43f5e, #fb923c, #fcd34d);
-  width: 100%;
-}
-
-/* Expired Card Styles */
-.expired-card {
-  background: #fcfcfc;
-  opacity: 0.85;
-}
-
-.expired-card .pass-card-top-line {
-  background: #94a3b8;
-}
-
-.expired-card .pass-title {
-  background: none;
-  -webkit-text-fill-color: initial;
-  color: #94a3b8;
-}
-
-.badge-expired {
-  color: #f43f5e !important;
-}
-
-.pass-card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 2.8rem 4rem 1.2rem;
-}
-
-.pass-title {
-  font-size: 2.4rem;
-  font-weight: 800;
-  background: linear-gradient(135deg, #ec4899, #8b5cf6);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin: 0;
-}
-
-.pass-days-badge {
-  color: #10b981;
-  font-size: 1.2rem;
-  font-weight: 700;
-}
-
-.pass-card-body {
-  padding: 1.2rem 4rem 3.5rem;
-}
-
-.pass-dates {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  margin-bottom: 3rem;
-  position: relative;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid #f1f5f9;
-}
-
-/* Vertical dashed line effect */
-.pass-dates::after {
-  content: "";
-  position: absolute;
-  right: -2rem;
-  top: 10%;
-  height: 80%;
-  width: 1px;
-  border-right: 1px dashed #e2e8f0;
-}
-
-.date-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-}
-
-.date-label {
-  color: #94a3b8;
+.mp-v2-subtitle {
+  color: #64748b;
   font-size: 1.1rem;
   font-weight: 500;
-  margin: 0;
 }
 
-.date-value {
-  color: #1a202c;
-  font-size: 1.4rem;
+
+.mp-v2-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+
+.mp-v2-card {
+  background: #ffffff;
+  border-radius: 35px;
+  padding: 3.5rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.03);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+
+.mp-v2-card:hover {
+  transform: translateY(-5px);
+}
+
+
+.mp-v2-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background: linear-gradient(90deg, #ff9382 0%, #f6506d 50%, #ff89a3 100%);
+}
+
+
+.mp-v2-card.expired::before {
+  background: #94a3b8; /* Grey for expired */
+}
+
+
+.mp-v2-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2.5rem;
+}
+
+
+.mp-v2-pass-title {
+  font-size: 2.2rem;
   font-weight: 800;
-  margin: 0;
+  background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.btn-view-pass {
+
+.mp-v2-card.expired .mp-v2-pass-title {
+  background: #94a3b8;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+.mp-v2-status {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+
+.mp-v2-status.remaining {
+  color: #10b981;
+}
+
+
+.mp-v2-status.expired {
+  color: #f43f5e;
+}
+
+
+.mp-v2-details {
+  display: flex;
+  gap: 38rem;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px dashed #e2e8f0;
+}
+
+
+.mp-v2-detail-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+
+.mp-v2-label {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+
+.mp-v2-value {
+  font-size: 1.1rem;
+  color: #1e293b;
+  font-weight: 800;
+}
+
+
+.mp-v2-btn {
   width: 100%;
-  padding: 1.6rem;
-  background: linear-gradient(90deg, #a855f7, #ec4899);
+  padding: 1.3rem;
+  background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
   color: white;
   border: none;
-  border-radius: 25px;
-  font-size: 1.3rem;
-  font-weight: 700;
+  border-radius: 20px;
+  font-weight: 800;
+  font-size: 1.15rem;
   cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 10px 30px rgba(236, 72, 153, 0.25);
+  box-shadow: 0 10px 30px rgba(236, 72, 153, 0.2);
+  transition: all 0.3s ease;
+  text-align: center;
+  text-decoration: none;
+  display: block;
 }
 
-.btn-view-pass:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 18px 45px rgba(236, 72, 153, 0.35);
-  filter: brightness(1.1);
+
+.mp-v2-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 40px rgba(236, 72, 153, 0.3);
+  filter: brightness(1.05);
 }
 
-@media (max-width: 992px) {
-  .my-passes-section {
-    padding: 3rem 2rem;
-    border-radius: 40px;
-  }
-}
 
 @media (max-width: 768px) {
-  .section-title {
-    font-size: 2.8rem;
+  .mp-v2-card {
+    padding: 2.5rem 1.5rem;
   }
-
-  .pass-card-header {
-    padding: 2.2rem 2.2rem 1rem;
+ 
+  .mp-v2-pass-title {
+    font-size: 1.6rem;
+  }
+ 
+  .mp-v2-details {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 0.8rem;
+    gap: 1.5rem;
+    padding-bottom: 1.5rem;
   }
-
-  .pass-title {
-    font-size: 1.9rem;
-  }
-
-  .pass-card-body {
-    padding: 1.2rem 2.2rem 2.5rem;
-  }
-
-  .pass-dates {
-    gap: 2rem;
-  }
-
-  .pass-dates::after {
-    display: none;
+ 
+  .mp-v2-title {
+    font-size: 2.5rem;
   }
 }
+

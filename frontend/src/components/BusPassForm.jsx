@@ -1,123 +1,178 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Check } from 'lucide-react';
+
 
 const BusPassForm = () => {
   const navigate = useNavigate();
 
-  const [formData , setFormData] = useState({
-    aadhaar : "",
-    passType : "",
-    validFrom : "",
-    validTill : ""
-  })
+
+  const [formData, setFormData] = useState({
+    aadhaar: "657687980983",
+    passType: "",
+    validFrom: "",
+    validTill: ""
+  });
+
 
   const handleChange = (event) => {
-    const {name, value} = event.target
+    const { name, value } = event.target;
 
-    if(name === "validFrom"){
+
+    if (name === "validFrom") {
       const start = new Date(value);
-      start.setMonth(start.getMonth()+1);
+      if (!isNaN(start.getTime())) {
+        const till = new Date(start);
+        till.setMonth(till.getMonth() + 1);
+       
+        if (till.getDate() !== start.getDate()) {
+          till.setDate(0);
+        }
 
-      const validTillDate = start.toISOString().split("T")[0];
 
-      setFormData ({
-        ...formData,
-        validFrom : value,
-        validTill : validTillDate,
-      });
+        const validTillDate = till.toISOString().split("T")[0];
+
+
+        setFormData({
+          ...formData,
+          validFrom: value,
+          validTill: validTillDate,
+        });
+      } else {
+        setFormData({
+          ...formData,
+          validFrom: value,
+          validTill: "",
+        });
+      }
     } else {
       setFormData({
         ...formData,
-        [name] : value
-      })
+        [name]: value
+      });
     }
-    // setFormData({
-    //   ...formData,
-    //   [event.target.name] : event.target.value
-    // })
   };
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-  const newPass = {
-    ...formData,
-    id : Date.now()
+    const newPass = { ...formData, id: Date.now() };
+    const oldPass = JSON.parse(localStorage.getItem("passes")) || [];
+    localStorage.setItem("passes", JSON.stringify([...oldPass, newPass]));
+    navigate("/success", { state: newPass });
   };
 
-  const oldPass = JSON.parse(localStorage.getItem("passes")) || [];
 
-  localStorage.setItem("passes",JSON.stringify([...oldPass,newPass]));
-
-  navigate("/success",{state : newPass})
-  }
   return (
-    <div>
-        <div className="form-container">
-        <div className="form-card">
-          <h2 className="form-title">Apply for Bus Pass</h2>
-          <p className="form-subtitle">
-            Fill the details below to apply for your pass
-          </p>
-          <form onSubmit={handleSubmit} id="apply-pass-form">
-            <div className="form-group">
-              <label htmlFor="id-proof">Aadhaar Number</label>
+    <div className="form-v2-wrapper">
+      <div className="form-v2-container">
+        <div className="form-v2-card">
+          <div className="form-v2-header">
+            <h2 className="form-v2-title">Apply for Bus Pass</h2>
+            <p className="form-v2-subtitle">Fill the details below to apply for your pass</p>
+          </div>
+          <form onSubmit={handleSubmit} className="form-v2-apply-form">
+            <div className="form-v2-group">
+              <label className="form-v2-label">Aadhaar Number</label>
               <input
                 type="text"
-                id="id-proof"
                 name="aadhaar"
+                className="form-v2-input"
                 placeholder="Enter 12-digit Aadhaar number"
-                maxLength={12}
-                pattern="[0-9]{12}" onChange={handleChange}
+                value={formData.aadhaar}
+                onChange={handleChange}
                 required
               />
             </div>
 
-            <label htmlFor="main-label">Select Pass Type</label>
-            <div className="pass-container">
-              <div className="pass-type-group">
-                <label className="pass-option">
-                  <input type="radio" name="passType" value={1000} required onChange={handleChange} />
-                  <span>
-                    ₹1000 Pass<small>[valid in Non-AC buses]</small>{" "}
-                  </span>
+
+            <div className="form-v2-group">
+              <label className="form-v2-label">Select Pass Type</label>
+              <div className="form-v2-pass-options">
+                <label className={`form-v2-pass-card ${formData.passType === "1000" ? "selected" : ""}`}>
+                  <input
+                    type="radio"
+                    name="passType"
+                    value="1000"
+                    required
+                    onChange={handleChange}
+                    className="form-v2-radio-input"
+                  />
+                  <div className="form-v2-pass-content">
+                    <span className="form-v2-radio-circle"></span>
+                    <div className="form-v2-pass-details">
+                      <span className="form-v2-pass-price">₹1000 Pass</span>
+                      <span className="form-v2-pass-desc">[valid in Non-AC buses]</span>
+                    </div>
+                  </div>
+                  {formData.passType === "1000" && (
+                    <div className="form-v2-check-badge">
+                      <Check size={18} strokeWidth={4} color="white" />
+                    </div>
+                  )}
                 </label>
 
-                <label className="pass-option">
-                  <input type="radio" name="passType" value={2000} onChange={handleChange}/>
-                  <span>
-                    ₹2000 Pass <small>[valid in AC and Non-AC buses]</small>
-                  </span>
+
+                <label className={`form-v2-pass-card ${formData.passType === "2000" ? "selected" : ""}`}>
+                  <input
+                    type="radio"
+                    name="passType"
+                    value="2000"
+                    onChange={handleChange}
+                    className="form-v2-radio-input"
+                  />
+                  <div className="form-v2-pass-content">
+                    <span className="form-v2-radio-circle"></span>
+                    <div className="form-v2-pass-details">
+                      <span className="form-v2-pass-price">₹2000 Pass</span>
+                      <span className="form-v2-pass-desc">[valid in AC and Non-AC buses]</span>
+                    </div>
+                  </div>
+                  {formData.passType === "2000" && (
+                    <div className="form-v2-check-badge">
+                      <Check size={18} strokeWidth={4} color="white" />
+                    </div>
+                  )}
                 </label>
               </div>
             </div>
 
-            <div className="form-group">
-              <label htmlFor="valid-from">Valid From</label>
-              <input type="date" id="valid-from" name="validFrom" required onChange={handleChange} />
+
+            <div className="form-v2-group">
+              <label className="form-v2-label">Valid From</label>
+              <input
+                type="date"
+                name="validFrom"
+                className="form-v2-input"
+                required
+                onChange={handleChange}
+              />
             </div>
 
-            <div className="form-group">
-              <label htmlFor="validTill">Valid Till</label>
+
+            <div className="form-v2-group">
+              <label className="form-v2-label">Valid Till</label>
               <input
                 type="date"
                 name="validTill"
                 value={formData.validTill}
-                id="valid-till"
+                className="form-v2-input"
                 readOnly
-              
               />
+              <p className="form-v2-input-note">Validity is fixed for 1 month from the start date.</p>
             </div>
 
-            <button type="submit" className="btn-primary">
+
+            <button type="submit" className="form-v2-submit-btn">
               Proceed to Continue
             </button>
           </form>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default BusPassForm
+
+export default BusPassForm;
+

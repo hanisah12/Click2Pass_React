@@ -1,205 +1,212 @@
-.view-pass-page {
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+
+.vp-v2-page {
   min-height: 100vh;
-  position: relative;
-  overflow-x: hidden;
-  padding-top: 100px;
-  background: linear-gradient(135deg, #f8f9ff 0%, #f1f0ff 100%);
+  background-color: #f3f7ff;
+  font-family: 'Inter', sans-serif;
 }
 
-.form-container {
-  max-width: 750px;
-  margin: 0 auto 4rem;
-  padding: 0 1.5rem;
-  position: relative;
-  z-index: 1;
+
+.vp-v2-wrapper {
+  padding: 120px 1.5rem 6rem;
+  display: flex;
+  justify-content: center;
 }
 
-.success-card {
+
+.vp-v2-container {
+  width: 100%;
+  max-width: 680px;
+  animation: vpFadeIn 0.6s ease-out;
+}
+
+
+@keyframes vpFadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+.vp-v2-card {
   background: #ffffff;
-  border-radius: 24px;
-  padding: 3.5rem 4rem;
-  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.05);
+  border-radius: 40px;
+  padding: 4.5rem 3.5rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.04);
   text-align: center;
-  border: 1px solid rgba(0, 0, 0, 0.02);
 }
 
-.success-icon {
+
+.vp-v2-icon-wrapper {
   display: flex;
   justify-content: center;
   margin-bottom: 2rem;
 }
 
-.check-mark {
-  width: 70px;
-  height: 70px;
-  background: #10b981;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 2rem;
-  box-shadow: 0 10px 20px rgba(16, 185, 129, 0.2);
+
+.vp-v2-check-icon {
+  color: #10b981;
 }
 
-.form-title {
-  font-size: 3.5rem;
+
+.vp-v2-title {
+  font-size: 3.2rem;
   font-weight: 800;
-  background: linear-gradient(135deg, #8a60ff, #f43f5e);
+  margin-bottom: 0.75rem;
+  background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: 0.75rem;
-  letter-spacing: -1.5px;
+  display: inline-block;
+  letter-spacing: -1px;
 }
 
-.form-subtitle {
-  color: #718096;
+
+.vp-v2-subtitle {
+  color: #64748b;
   font-size: 1.1rem;
   font-weight: 500;
   margin-bottom: 2.5rem;
 }
 
-.confirmation-box {
-  background: linear-gradient(135deg, #8a60ff 0%, #a855f7 100%);
+
+.vp-v2-banner {
+  background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
   color: white;
   padding: 1.25rem;
   border-radius: 12px;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.75rem;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 1.05rem;
-  box-shadow: 0 8px 25px rgba(138, 96, 255, 0.25);
+  box-shadow: 0 10px 25px rgba(99, 102, 241, 0.2);
 }
 
-.ticket-details {
-  background: #ffffff;
-  border-radius: 16px;
-  border: 1px solid #edf2f7;
+
+.vp-v2-details-table {
+  border: 1.5px solid #eef2f6;
+  border-radius: 20px;
   overflow: hidden;
-  margin-bottom: 2.5rem;
+  margin-bottom: 3rem;
+  text-align: left;
 }
 
-.ticket-row {
+
+.vp-v2-detail-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.25rem 2rem;
-  border-bottom: 1px solid #f7fafc;
+  padding: 1.25rem 1.75rem;
+  border-bottom: 1px solid #f1f5f9;
 }
 
-.ticket-row:last-child {
+
+.vp-v2-detail-row:last-child {
   border-bottom: none;
 }
 
-.label {
-  color: #718096;
-  font-weight: 500;
+
+.vp-v2-label {
+  color: #64748b;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+
+.vp-v2-value {
+  color: #1e293b;
+  font-weight: 800;
   font-size: 1rem;
 }
 
-.value {
-  color: #1a202c;
-  font-weight: 700;
-  font-size: 1.1rem;
+
+.vp-v2-value.pass-id {
+  color: #8b5cf6;
 }
 
-.pass-id-value {
-  color: #8a60ff;
-}
 
-.days-remaining {
+.vp-v2-value.days-left {
   color: #10b981;
 }
 
-.help-section {
-  padding: 2.5rem 0;
-  border-top: 1px solid #edf2f7;
-  margin-bottom: 1.5rem;
+
+.vp-v2-help-box {
+  border: 1.5px solid #eef2f6;
+  border-radius: 20px;
+  padding: 2.2rem;
+  margin-bottom: 3rem;
 }
 
-.help-card {
-  text-align: center;
-}
 
-.help-card h4 {
+.vp-v2-help-title {
   font-size: 1.25rem;
-  color: #2d3748;
+  font-weight: 800;
+  color: #1e293b;
   margin-bottom: 0.75rem;
-  font-weight: 700;
 }
 
-.help-card p {
-  color: #718096;
-  font-size: 1rem;
+
+.vp-v2-help-text {
+  color: #64748b;
+  font-size: 0.95rem;
   line-height: 1.6;
   margin-bottom: 1.5rem;
-  max-width: 500px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
-.help-link {
+
+.vp-v2-help-link {
   color: #4f46e5;
-  text-decoration: none;
   font-weight: 700;
-  font-size: 1.1rem;
+  text-decoration: none;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  transition: all 0.2s;
+  transition: gap 0.2s;
 }
 
-.help-link:hover {
-  gap: 0.8rem;
-  opacity: 0.8;
+
+.vp-v2-help-link:hover {
+  gap: 0.75rem;
+  text-decoration: underline;
 }
 
-.back-btn {
-  background: linear-gradient(90deg, #8a60ff, #f43f5e) !important;
-  border-radius: 16px !important;
-  padding: 1.5rem !important;
-  font-size: 1.25rem !important;
-  text-transform: none !important;
-  box-shadow: 0 10px 25px rgba(244, 63, 94, 0.25) !important;
-  display: block;
-  text-decoration: none;
+
+.vp-v2-btn {
+  width: 100%;
+  padding: 1.3rem;
+  background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
   color: white;
-  margin-top: 0;
+  border: none;
+  border-radius: 20px;
+  font-weight: 800;
+  font-size: 1.15rem;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(236, 72, 153, 0.25);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: block;
 }
 
-.back-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 15px 35px rgba(244, 63, 94, 0.35) !important;
+
+.vp-v2-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 40px rgba(236, 72, 153, 0.35);
+  filter: brightness(1.05);
 }
 
-@media (max-width: 768px) {
-  .success-card {
-    padding: 2.5rem 2rem;
-  }
 
-  .form-title {
-    font-size: 2.5rem;
+@media (max-width: 640px) {
+  .vp-v2-card {
+    padding: 3rem 1.5rem;
+    border-radius: 30px;
   }
-
-  .ticket-row {
-    padding: 1rem 1.5rem;
+ 
+  .vp-v2-title {
+    font-size: 2.2rem;
   }
 }
 
-@media (max-width: 480px) {
-  .form-title {
-    font-size: 2rem;
-  }
 
-  .label, .value {
-    font-size: 0.95rem;
-  }
 
-  .confirmation-box {
-    font-size: 0.95rem;
-  }
-}

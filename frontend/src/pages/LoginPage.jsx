@@ -1,67 +1,85 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
+import { Eye, EyeOff } from "lucide-react";
 import "../style/login-page.css";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Here you would typically validate credentials and make an API call
-    // For now, we'll just navigate to the landing page
     navigate("/landing-page");
   };
 
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
-    <div>
+    <div className="auth-v2-page-wrapper">
       <NavBar />
-      <div className="form-container">
-        <div className="login-card">
-          <h2 className="form-title">Login</h2>
-          <p className="form-subtitle">Welcome back! Please login</p>
-          <form id="loginForm" onSubmit={handleSubmit}>
-            <div className="form-group">
+      <div className="auth-v2-main-container">
+        <div className="auth-v2-login-card">
+          <div className="auth-v2-card-header">
+            <h2 className="auth-v2-form-title">Login</h2>
+            <p className="auth-v2-form-subtitle">Welcome back! Please login</p>
+          </div>
+
+          <form className="auth-v2-login-form" onSubmit={handleSubmit}>
+            <div className="auth-v2-form-group">
               <input
                 type="email"
-                id="email"
+                className="auth-v2-input-field"
                 placeholder="Enter your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
               />
             </div>
-            <div className="form-group">
-              <div className="password-container">
+
+            <div className="auth-v2-form-group">
+              <div className="auth-v2-password-wrapper">
                 <input
-                  type="password"
-                  id="password"
-                  name="password"
+                  type={showPassword ? "text" : "password"}
+                  className="auth-v2-input-field auth-v2-password-input"
                   placeholder="Enter your password"
-                  className="form-control"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
                 />
-                <i className="fas fa-eye toggle-password" id="togglePassword"></i>
+                <button
+                  type="button"
+                  className="auth-v2-toggle-btn"
+                  onClick={togglePasswordVisibility}
+                  aria-label={showPassword ? "Hide password" : "Show password"}
+                >
+                  {showPassword ? (
+                    <EyeOff size={20} className="auth-v2-eye-icon" />
+                  ) : (
+                    <Eye size={20} className="auth-v2-eye-icon" />
+                  )}
+                </button>
               </div>
             </div>
-            <button type="submit" className="btn-primary">
+
+            <button type="submit" className="auth-v2-submit-btn">
               Login
             </button>
           </form>
-          <p className="login-footer-text">
-            Don't have an account?
-            <a
-              href="signup.html"
-              className="login-footer-link"
-            >
-              Sign Up
-            </a>
-          </p>
+
+          <div className="auth-v2-card-footer">
+            <p className="auth-v2-footer-text">
+              Don't have an account?{" "}
+              <Link to="/signup" className="auth-v2-signup-link">
+                Sign Up
+              </Link>
+            </p>
+          </div>
         </div>
       </div>
       <Footer />
