@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
 
 .success-v2-wrapper {
   min-height: 100vh;
@@ -8,9 +7,8 @@
   justify-content: center;
   align-items: flex-start;
   padding: 120px 1.5rem 6rem; /* Increased top padding for space below nav */
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
-
 
 .success-v2-container {
   width: 100%;
@@ -18,12 +16,16 @@
   animation: successFadeIn 0.6s ease-out;
 }
 
-
 @keyframes successFadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-
 
 .success-v2-card {
   background: #ffffff;
@@ -33,18 +35,15 @@
   text-align: center;
 }
 
-
 .success-v2-icon-wrapper {
   display: flex;
   justify-content: center;
   margin-bottom: 2rem;
 }
 
-
 .success-v2-check-icon {
   color: #10b981;
 }
-
 
 .success-v2-title {
   font-size: 3.2rem;
@@ -57,14 +56,12 @@
   letter-spacing: -1px;
 }
 
-
 .success-v2-subtitle {
   color: #64748b;
   font-size: 1.1rem;
   font-weight: 500;
   margin-bottom: 3.5rem;
 }
-
 
 .success-v2-details-table {
   border: 1.5px solid #eef2f6;
@@ -74,7 +71,6 @@
   text-align: left;
 }
 
-
 .success-v2-detail-row {
   display: flex;
   justify-content: space-between;
@@ -83,11 +79,9 @@
   border-bottom: 1px solid #f1f5f9;
 }
 
-
 .success-v2-detail-row:last-child {
   border-bottom: none;
 }
-
 
 .success-v2-label {
   color: #64748b;
@@ -95,23 +89,19 @@
   font-size: 0.95rem;
 }
 
-
 .success-v2-value {
   color: #1e293b;
   font-weight: 800;
   font-size: 1rem;
 }
 
-
 .success-v2-value.pass-id {
   color: #8b5cf6;
 }
 
-
 .success-v2-value.days-left {
   color: #10b981;
 }
-
 
 .success-v2-help-box {
   border: 1.5px solid #eef2f6;
@@ -120,7 +110,6 @@
   margin-bottom: 3rem;
 }
 
-
 .success-v2-help-title {
   font-size: 1.25rem;
   font-weight: 800;
@@ -128,14 +117,12 @@
   margin-bottom: 0.75rem;
 }
 
-
 .success-v2-help-text {
   color: #64748b;
   font-size: 0.95rem;
   line-height: 1.6;
   margin-bottom: 1.5rem;
 }
-
 
 .success-v2-help-link {
   color: #4f46e5;
@@ -147,12 +134,10 @@
   transition: gap 0.2s;
 }
 
-
 .success-v2-help-link:hover {
   gap: 0.75rem;
   text-decoration: underline;
 }
-
 
 .success-v2-btn {
   width: 100%;
@@ -170,28 +155,23 @@
   display: block;
 }
 
-
 .success-v2-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 15px 40px rgba(236, 72, 153, 0.35);
   filter: brightness(1.05);
 }
 
-
 @media (max-width: 640px) {
   .success-v2-card {
     padding: 3rem 1.5rem;
     border-radius: 30px;
   }
- 
+
   .success-v2-title {
     font-size: 2.2rem;
   }
- 
+
   .success-v2-detail-row {
     padding: 1rem 1.25rem;
   }
 }
-
-
-

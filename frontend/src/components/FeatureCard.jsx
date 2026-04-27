@@ -1,6 +1,5 @@
 import React from "react";
 
-
 const FeatureCard = ({ icon: Icon, title, description, isStep }) => {
   const cardClass = isStep ? "how-it-works-step" : "feature-card";
   return (
@@ -12,12 +11,4 @@ const FeatureCard = ({ icon: Icon, title, description, isStep }) => {
   );
 };
 
-
 export default FeatureCard;
-
-
-
-
-
-
-

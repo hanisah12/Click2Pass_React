@@ -1,12 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
 
 .vp-v2-page {
   min-height: 100vh;
   background-color: #f3f7ff;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
-
 
 .vp-v2-wrapper {
   padding: 120px 1.5rem 6rem;
@@ -14,19 +12,22 @@
   justify-content: center;
 }
 
-
 .vp-v2-container {
   width: 100%;
   max-width: 680px;
   animation: vpFadeIn 0.6s ease-out;
 }
 
-
 @keyframes vpFadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-
 
 .vp-v2-card {
   background: #ffffff;
@@ -36,18 +37,15 @@
   text-align: center;
 }
 
-
 .vp-v2-icon-wrapper {
   display: flex;
   justify-content: center;
   margin-bottom: 2rem;
 }
 
-
 .vp-v2-check-icon {
   color: #10b981;
 }
-
 
 .vp-v2-title {
   font-size: 3.2rem;
@@ -60,14 +58,12 @@
   letter-spacing: -1px;
 }
 
-
 .vp-v2-subtitle {
   color: #64748b;
   font-size: 1.1rem;
   font-weight: 500;
   margin-bottom: 2.5rem;
 }
-
 
 .vp-v2-banner {
   background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
@@ -84,7 +80,6 @@
   box-shadow: 0 10px 25px rgba(99, 102, 241, 0.2);
 }
 
-
 .vp-v2-details-table {
   border: 1.5px solid #eef2f6;
   border-radius: 20px;
@@ -92,7 +87,6 @@
   margin-bottom: 3rem;
   text-align: left;
 }
-
 
 .vp-v2-detail-row {
   display: flex;
@@ -102,11 +96,9 @@
   border-bottom: 1px solid #f1f5f9;
 }
 
-
 .vp-v2-detail-row:last-child {
   border-bottom: none;
 }
-
 
 .vp-v2-label {
   color: #64748b;
@@ -114,23 +106,19 @@
   font-size: 0.95rem;
 }
 
-
 .vp-v2-value {
   color: #1e293b;
   font-weight: 800;
   font-size: 1rem;
 }
 
-
 .vp-v2-value.pass-id {
   color: #8b5cf6;
 }
 
-
 .vp-v2-value.days-left {
   color: #10b981;
 }
-
 
 .vp-v2-help-box {
   border: 1.5px solid #eef2f6;
@@ -139,7 +127,6 @@
   margin-bottom: 3rem;
 }
 
-
 .vp-v2-help-title {
   font-size: 1.25rem;
   font-weight: 800;
@@ -147,14 +134,12 @@
   margin-bottom: 0.75rem;
 }
 
-
 .vp-v2-help-text {
   color: #64748b;
   font-size: 0.95rem;
   line-height: 1.6;
   margin-bottom: 1.5rem;
 }
-
 
 .vp-v2-help-link {
   color: #4f46e5;
@@ -166,12 +151,10 @@
   transition: gap 0.2s;
 }
 
-
 .vp-v2-help-link:hover {
   gap: 0.75rem;
   text-decoration: underline;
 }
-
 
 .vp-v2-btn {
   width: 100%;
@@ -189,24 +172,19 @@
   display: block;
 }
 
-
 .vp-v2-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 15px 40px rgba(236, 72, 153, 0.35);
   filter: brightness(1.05);
 }
 
-
 @media (max-width: 640px) {
   .vp-v2-card {
     padding: 3rem 1.5rem;
     border-radius: 30px;
   }
- 
+
   .vp-v2-title {
     font-size: 2.2rem;
   }
 }
-
-
-

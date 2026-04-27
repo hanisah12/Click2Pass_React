@@ -1,14 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
 
 .auth-v2-page-wrapper {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   background-color: #f3f7ff;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
-
 
 .auth-v2-main-container {
   flex: 1;
@@ -18,7 +16,6 @@
   padding: 2rem;
   margin-top: 100px; /* More space between nav and form */
 }
-
 
 .auth-v2-login-card {
   background: #ffffff;
@@ -32,12 +29,16 @@
   animation: authFadeIn 0.6s ease-out;
 }
 
-
 @keyframes authFadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-
 
 /* Gradient top border exactly like the image */
 .auth-v2-login-card::before {
@@ -51,12 +52,10 @@
   z-index: 1;
 }
 
-
 .auth-v2-card-header {
   text-align: center;
   margin-bottom: 2.5rem;
 }
-
 
 .auth-v2-form-title {
   font-size: 2.8rem;
@@ -66,13 +65,11 @@
   letter-spacing: -0.5px;
 }
 
-
 .auth-v2-form-subtitle {
   font-size: 0.95rem;
   color: #64748b;
   font-weight: 500;
 }
-
 
 .auth-v2-login-form {
   display: flex;
@@ -80,11 +77,9 @@
   gap: 1.25rem;
 }
 
-
 .auth-v2-form-group {
   position: relative;
 }
-
 
 .auth-v2-input-field {
   width: 100%;
@@ -99,7 +94,6 @@
   box-sizing: border-box;
 }
 
-
 .auth-v2-input-field:focus {
   outline: none;
   border-color: #7c3aed;
@@ -107,11 +101,9 @@
   box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.08);
 }
 
-
 .auth-v2-input-field::placeholder {
   color: #94a3b8;
 }
-
 
 .auth-v2-password-wrapper {
   position: relative;
@@ -119,11 +111,9 @@
   align-items: center;
 }
 
-
 .auth-v2-password-input {
   padding-right: 3.5rem;
 }
-
 
 .auth-v2-toggle-btn {
   position: absolute;
@@ -139,11 +129,9 @@
   transition: color 0.2s;
 }
 
-
 .auth-v2-toggle-btn:hover {
   color: #64748b;
 }
-
 
 .auth-v2-submit-btn {
   width: 100%;
@@ -160,31 +148,26 @@
   box-shadow: 0 10px 25px rgba(236, 72, 153, 0.25);
 }
 
-
 .auth-v2-submit-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 14px 30px rgba(236, 72, 153, 0.35);
   filter: brightness(1.05);
 }
 
-
 .auth-v2-submit-btn:active {
   transform: translateY(0);
 }
-
 
 .auth-v2-card-footer {
   margin-top: 2rem;
   text-align: center;
 }
 
-
 .auth-v2-footer-text {
   font-size: 0.9rem;
   color: #64748b;
   font-weight: 500;
 }
-
 
 .auth-v2-signup-link {
   color: #4f46e5;
@@ -193,12 +176,10 @@
   transition: all 0.2s;
 }
 
-
 .auth-v2-signup-link:hover {
   color: #4338ca;
   text-decoration: underline;
 }
-
 
 /* Mobile Responsiveness */
 @media (max-width: 480px) {
@@ -206,9 +187,8 @@
     padding: 2.5rem 1.5rem;
     border-radius: 24px;
   }
- 
+
   .auth-v2-form-title {
     font-size: 2.2rem;
   }
 }
-

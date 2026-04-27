@@ -1,12 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
 
 .prof-v2-page {
   min-height: 100vh;
   background-color: #f3f7ff;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
-
 
 .prof-v2-wrapper {
   max-width: 1200px;
@@ -14,13 +12,11 @@
   padding: 120px 1.5rem 6rem;
 }
 
-
 .prof-v2-layout {
   display: flex;
   gap: 2.5rem;
   align-items: flex-start;
 }
-
 
 /* Sidebar Styling */
 .prof-v2-sidebar {
@@ -34,7 +30,6 @@
   flex-shrink: 0;
 }
 
-
 .prof-v2-sidebar::before {
   content: "";
   position: absolute;
@@ -45,7 +40,6 @@
   background: linear-gradient(90deg, #ff9382 0%, #f6506d 50%, #ff89a3 100%);
 }
 
-
 .prof-v2-user-box {
   display: flex;
   align-items: center;
@@ -54,7 +48,6 @@
   border-bottom: 1px dashed #e2e8f0;
   margin-bottom: 2rem;
 }
-
 
 .prof-v2-avatar {
   width: 56px;
@@ -67,12 +60,10 @@
   color: white;
 }
 
-
 .prof-v2-welcome {
   display: flex;
   flex-direction: column;
 }
-
 
 .prof-v2-welcome span {
   font-size: 0.9rem;
@@ -80,13 +71,11 @@
   font-weight: 700;
 }
 
-
 .prof-v2-username {
   font-size: 1.1rem;
   font-weight: 800;
   color: #4f46e5;
 }
-
 
 .prof-v2-menu {
   list-style: none;
@@ -95,7 +84,6 @@
   flex-direction: column;
   gap: 0.5rem;
 }
-
 
 .prof-v2-menu-item {
   text-decoration: none;
@@ -111,19 +99,16 @@
   border-left: 4px solid transparent;
 }
 
-
 .prof-v2-menu-item:hover {
   background: #f8fafc;
   color: #4f46e5;
 }
-
 
 .prof-v2-menu-item.active {
   background: #fdfaff;
   color: #4f46e5;
   border-left-color: #f6506d;
 }
-
 
 /* Main Content Styling */
 .prof-v2-content {
@@ -136,7 +121,6 @@
   overflow: hidden;
 }
 
-
 .prof-v2-content::before {
   content: "";
   position: absolute;
@@ -147,12 +131,10 @@
   background: linear-gradient(90deg, #ff9382 0%, #f6506d 50%, #ff89a3 100%);
 }
 
-
 .prof-v2-header {
   text-align: center;
   margin-bottom: 3.5rem;
 }
-
 
 .prof-v2-title {
   font-size: 3rem;
@@ -164,13 +146,11 @@
   letter-spacing: -1px;
 }
 
-
 .prof-v2-subtitle {
   color: #64748b;
   font-size: 1.1rem;
   font-weight: 500;
 }
-
 
 .prof-v2-details-box {
   background: #f8fafc;
@@ -183,13 +163,11 @@
   gap: 1.8rem;
 }
 
-
 .prof-v2-field {
   display: flex;
   align-items: center;
   gap: 2rem;
 }
-
 
 .prof-v2-label {
   width: 140px;
@@ -198,7 +176,6 @@
   font-size: 0.95rem;
   flex-shrink: 0;
 }
-
 
 .prof-v2-input {
   flex-grow: 1;
@@ -211,7 +188,6 @@
   font-weight: 500;
   cursor: default;
 }
-
 
 .prof-v2-btn {
   width: 100%;
@@ -227,42 +203,38 @@
   margin-top: 1rem;
 }
 
-
 .prof-v2-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 20px rgba(92, 76, 244, 0.25);
   filter: brightness(1.1);
 }
 
-
 @media (max-width: 992px) {
   .prof-v2-layout {
     flex-direction: column;
   }
- 
+
   .prof-v2-sidebar {
     width: 100%;
   }
 }
 
-
 @media (max-width: 640px) {
   .prof-v2-content {
     padding: 3rem 1.5rem;
   }
- 
+
   .prof-v2-details-box {
     padding: 2rem 1.5rem;
   }
- 
+
   .prof-v2-field {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.5rem;
   }
- 
+
   .prof-v2-label {
     width: auto;
   }
 }
-

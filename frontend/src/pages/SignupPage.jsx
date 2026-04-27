@@ -3,7 +3,6 @@ import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import "../style/signup-page.css";
 
-
 const SignupPage = () => {
   return (
     <div>
@@ -12,7 +11,6 @@ const SignupPage = () => {
         <div className="login-card">
           <h2 className="form-title">Create Account</h2>
           <p className="form-subtitle">Join us today! Please sign up</p>
-
 
           <form id="signupForm">
             <div className="form-group">
@@ -24,7 +22,6 @@ const SignupPage = () => {
               />
             </div>
 
-
             <div className="form-group">
               <input
                 type="email"
@@ -33,7 +30,6 @@ const SignupPage = () => {
                 required
               />
             </div>
-
 
             <div className="form-group">
               <input
@@ -45,7 +41,6 @@ const SignupPage = () => {
               />
             </div>
 
-
             <div className="form-group">
               <div className="password-container">
                 <input
@@ -54,7 +49,10 @@ const SignupPage = () => {
                   placeholder="Create a password"
                   required
                 />
-                <i className="fas fa-eye toggle-password" id="togglePassword"></i>
+                <i
+                  className="fas fa-eye toggle-password"
+                  id="togglePassword"
+                ></i>
               </div>
               <small className="help-text">
                 Must be 8+ characters with at least one alphabet, one number,
@@ -62,25 +60,16 @@ const SignupPage = () => {
               </small>
             </div>
 
-
             <button type="submit" className="btn-primary">
               Sign Up
             </button>
 
-
-            <p
-              id="signupMessage"
-              className="signup-message"
-            ></p>
+            <p id="signupMessage" className="signup-message"></p>
           </form>
-
 
           <p className="signup-footer-text">
             Already have an account?
-            <a
-              href="login.html"
-              className="signup-footer-link"
-            >
+            <a href="login.html" className="signup-footer-link">
               Login here
             </a>
           </p>
@@ -91,8 +80,4 @@ const SignupPage = () => {
   );
 };
 
-
 export default SignupPage;
-
-
-

@@ -14,14 +14,20 @@ const MyPasses = () => {
     setPasses(storedPasses);
   }, []);
 
-  const getDaysRemaining = (validTill) => {
-    if (!validTill) return 0;
+  const getDaysRemaining = (validFrom, validTill) => {
+    if (!validTill || !validFrom) return 0;
     const today = new Date();
+    const start = new Date(validFrom);
     const till = new Date(validTill);
+
     today.setHours(0, 0, 0, 0);
+    start.setHours(0, 0, 0, 0);
     till.setHours(0, 0, 0, 0);
-    const diffTime = till - today;
+
+    const referenceDate = today < start ? start : today;
+    const diffTime = till - referenceDate;
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
     return diffDays;
   };
 
@@ -52,7 +58,10 @@ const MyPasses = () => {
             </div>
           ) : (
             passes.map((pass) => {
-              const daysRemaining = getDaysRemaining(pass.validTill);
+              const daysRemaining = getDaysRemaining(
+                pass.validFrom,
+                pass.validTill,
+              );
               const isExpired = daysRemaining < 0;
 
               return (

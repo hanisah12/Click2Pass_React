@@ -20,7 +20,7 @@ const ProfilePage = () => {
               </div>
               <div className="prof-v2-welcome">
                 <span>Welcome,</span>
-                <div className="prof-v2-username">sidhu S</div>
+                <div className="prof-v2-username">Hanisha</div>
               </div>
             </div>
 
@@ -70,7 +70,7 @@ const ProfilePage = () => {
                 <input
                   type="text"
                   className="prof-v2-input"
-                  value="sidhu S"
+                  value="Hanisha"
                   readOnly
                 />
               </div>
@@ -80,7 +80,7 @@ const ProfilePage = () => {
                 <input
                   type="email"
                   className="prof-v2-input"
-                  value="sidhu2003@gmail.com"
+                  value="hanisha16@gmail.com"
                   readOnly
                 />
               </div>
@@ -90,7 +90,7 @@ const ProfilePage = () => {
                 <input
                   type="tel"
                   className="prof-v2-input"
-                  value="9128734650"
+                  value="8778583290"
                   readOnly
                 />
               </div>

@@ -1,37 +1,31 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Check } from 'lucide-react';
-
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Check } from "lucide-react";
 
 const BusPassForm = () => {
   const navigate = useNavigate();
-
 
   const [formData, setFormData] = useState({
     aadhaar: "657687980983",
     passType: "",
     validFrom: "",
-    validTill: ""
+    validTill: "",
   });
-
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-
 
     if (name === "validFrom") {
       const start = new Date(value);
       if (!isNaN(start.getTime())) {
         const till = new Date(start);
         till.setMonth(till.getMonth() + 1);
-       
+
         if (till.getDate() !== start.getDate()) {
           till.setDate(0);
         }
 
-
         const validTillDate = till.toISOString().split("T")[0];
-
 
         setFormData({
           ...formData,
@@ -48,11 +42,10 @@ const BusPassForm = () => {
     } else {
       setFormData({
         ...formData,
-        [name]: value
+        [name]: value,
       });
     }
   };
-
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -62,14 +55,15 @@ const BusPassForm = () => {
     navigate("/success", { state: newPass });
   };
 
-
   return (
     <div className="form-v2-wrapper">
       <div className="form-v2-container">
         <div className="form-v2-card">
           <div className="form-v2-header">
             <h2 className="form-v2-title">Apply for Bus Pass</h2>
-            <p className="form-v2-subtitle">Fill the details below to apply for your pass</p>
+            <p className="form-v2-subtitle">
+              Fill the details below to apply for your pass
+            </p>
           </div>
           <form onSubmit={handleSubmit} className="form-v2-apply-form">
             <div className="form-v2-group">
@@ -81,15 +75,17 @@ const BusPassForm = () => {
                 placeholder="Enter 12-digit Aadhaar number"
                 value={formData.aadhaar}
                 onChange={handleChange}
+                readOnly
                 required
               />
             </div>
 
-
             <div className="form-v2-group">
               <label className="form-v2-label">Select Pass Type</label>
               <div className="form-v2-pass-options">
-                <label className={`form-v2-pass-card ${formData.passType === "1000" ? "selected" : ""}`}>
+                <label
+                  className={`form-v2-pass-card ${formData.passType === "1000" ? "selected" : ""}`}
+                >
                   <input
                     type="radio"
                     name="passType"
@@ -102,7 +98,9 @@ const BusPassForm = () => {
                     <span className="form-v2-radio-circle"></span>
                     <div className="form-v2-pass-details">
                       <span className="form-v2-pass-price">₹1000 Pass</span>
-                      <span className="form-v2-pass-desc">[valid in Non-AC buses]</span>
+                      <span className="form-v2-pass-desc">
+                        [valid in Non-AC buses]
+                      </span>
                     </div>
                   </div>
                   {formData.passType === "1000" && (
@@ -112,8 +110,9 @@ const BusPassForm = () => {
                   )}
                 </label>
 
-
-                <label className={`form-v2-pass-card ${formData.passType === "2000" ? "selected" : ""}`}>
+                <label
+                  className={`form-v2-pass-card ${formData.passType === "2000" ? "selected" : ""}`}
+                >
                   <input
                     type="radio"
                     name="passType"
@@ -125,7 +124,9 @@ const BusPassForm = () => {
                     <span className="form-v2-radio-circle"></span>
                     <div className="form-v2-pass-details">
                       <span className="form-v2-pass-price">₹2000 Pass</span>
-                      <span className="form-v2-pass-desc">[valid in AC and Non-AC buses]</span>
+                      <span className="form-v2-pass-desc">
+                        [valid in AC and Non-AC buses]
+                      </span>
                     </div>
                   </div>
                   {formData.passType === "2000" && (
@@ -136,7 +137,6 @@ const BusPassForm = () => {
                 </label>
               </div>
             </div>
-
 
             <div className="form-v2-group">
               <label className="form-v2-label">Valid From</label>
@@ -149,7 +149,6 @@ const BusPassForm = () => {
               />
             </div>
 
-
             <div className="form-v2-group">
               <label className="form-v2-label">Valid Till</label>
               <input
@@ -159,9 +158,10 @@ const BusPassForm = () => {
                 className="form-v2-input"
                 readOnly
               />
-              <p className="form-v2-input-note">Validity is fixed for 1 month from the start date.</p>
+              <p className="form-v2-input-note">
+                Validity is fixed for 1 month from the start date.
+              </p>
             </div>
-
 
             <button type="submit" className="form-v2-submit-btn">
               Proceed to Continue
@@ -173,6 +173,4 @@ const BusPassForm = () => {
   );
 };
 
-
 export default BusPassForm;
-

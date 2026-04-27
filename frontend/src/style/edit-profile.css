@@ -1,12 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
 
 .edit-v2-page {
   min-height: 100vh;
   background-color: #f3f7ff;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
-
 
 .edit-v2-wrapper {
   max-width: 1200px;
@@ -14,13 +12,11 @@
   padding: 120px 1.5rem 6rem;
 }
 
-
 .edit-v2-layout {
   display: flex;
   gap: 2.5rem;
   align-items: flex-start;
 }
-
 
 /* Sidebar Styling - Shared with Profile for consistency but with unique prefix */
 .edit-v2-sidebar {
@@ -34,7 +30,6 @@
   flex-shrink: 0;
 }
 
-
 .edit-v2-sidebar::before {
   content: "";
   position: absolute;
@@ -45,7 +40,6 @@
   background: linear-gradient(90deg, #ff9382 0%, #f6506d 50%, #ff89a3 100%);
 }
 
-
 .edit-v2-user-box {
   display: flex;
   align-items: center;
@@ -54,7 +48,6 @@
   border-bottom: 1px dashed #e2e8f0;
   margin-bottom: 2rem;
 }
-
 
 .edit-v2-avatar {
   width: 56px;
@@ -67,12 +60,10 @@
   color: white;
 }
 
-
 .edit-v2-welcome {
   display: flex;
   flex-direction: column;
 }
-
 
 .edit-v2-welcome span {
   font-size: 0.9rem;
@@ -80,13 +71,11 @@
   font-weight: 700;
 }
 
-
 .edit-v2-username {
   font-size: 1.1rem;
   font-weight: 800;
   color: #4f46e5;
 }
-
 
 .edit-v2-menu {
   list-style: none;
@@ -95,7 +84,6 @@
   flex-direction: column;
   gap: 0.5rem;
 }
-
 
 .edit-v2-menu-item {
   text-decoration: none;
@@ -111,19 +99,16 @@
   border-left: 4px solid transparent;
 }
 
-
 .edit-v2-menu-item:hover {
   background: #f8fafc;
   color: #4f46e5;
 }
-
 
 .edit-v2-menu-item.active {
   background: #fdfaff;
   color: #4f46e5;
   border-left-color: #f6506d;
 }
-
 
 /* Main Content Styling */
 .edit-v2-content {
@@ -136,7 +121,6 @@
   overflow: hidden;
 }
 
-
 .edit-v2-content::before {
   content: "";
   position: absolute;
@@ -147,12 +131,10 @@
   background: linear-gradient(90deg, #ff9382 0%, #f6506d 50%, #ff89a3 100%);
 }
 
-
 .edit-v2-header {
   text-align: center;
   margin-bottom: 3.5rem;
 }
-
 
 .edit-v2-title {
   font-size: 3rem;
@@ -164,13 +146,11 @@
   letter-spacing: -1px;
 }
 
-
 .edit-v2-subtitle {
   color: #64748b;
   font-size: 1.1rem;
   font-weight: 500;
 }
-
 
 .edit-v2-form-box {
   background: #ffffff;
@@ -183,13 +163,11 @@
   gap: 1.8rem;
 }
 
-
 .edit-v2-group {
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
 }
-
 
 .edit-v2-label {
   font-weight: 700;
@@ -197,7 +175,6 @@
   font-size: 0.95rem;
   margin-left: 0.2rem;
 }
-
 
 .edit-v2-input {
   background: #f8fafc;
@@ -212,13 +189,11 @@
   box-sizing: border-box;
 }
 
-
 .edit-v2-input:focus {
   outline: none;
   border-color: #8a60ff;
   background: #ffffff;
 }
-
 
 .edit-v2-divider {
   border: none;
@@ -226,13 +201,11 @@
   margin: 1rem 0;
 }
 
-
 .edit-v2-pass-container {
   position: relative;
   display: flex;
   align-items: center;
 }
-
 
 .edit-v2-toggle {
   position: absolute;
@@ -242,11 +215,9 @@
   transition: color 0.2s;
 }
 
-
 .edit-v2-toggle:hover {
   color: #4f46e5;
 }
-
 
 .edit-v2-note {
   font-size: 0.85rem;
@@ -254,7 +225,6 @@
   line-height: 1.5;
   margin-top: 0.2rem;
 }
-
 
 .edit-v2-btn {
   width: 100%;
@@ -271,30 +241,24 @@
   margin-top: 1rem;
 }
 
-
 .edit-v2-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 15px 40px rgba(236, 72, 153, 0.35);
   filter: brightness(1.05);
 }
 
-
 @media (max-width: 992px) {
   .edit-v2-layout {
     flex-direction: column;
   }
- 
+
   .edit-v2-sidebar {
     width: 100%;
   }
 }
-
 
 @media (max-width: 640px) {
   .edit-v2-content {
     padding: 3rem 1.5rem;
   }
 }
-
-
-

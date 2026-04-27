@@ -1,12 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
 
 .lp-v2-landing-page {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   color: #1e293b;
   overflow-x: hidden;
 }
-
 
 /* Hero Section */
 .lp-v2-hero-section {
@@ -22,25 +20,26 @@
   overflow: hidden;
 }
 
-
 .lp-v2-hero-section::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(45deg, rgba(255, 255, 255, 0.1) 0%, transparent 60%);
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    transparent 60%
+  );
   pointer-events: none;
 }
-
 
 .lp-v2-hero-content {
   max-width: 900px;
   position: relative;
   z-index: 2;
 }
-
 
 .lp-v2-city-badge {
   display: inline-flex;
@@ -58,7 +57,6 @@
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-
 .lp-v2-hero-title {
   font-size: 4rem;
   font-weight: 900;
@@ -66,7 +64,6 @@
   margin-bottom: 1.5rem;
   letter-spacing: -0.02em;
 }
-
 
 .lp-v2-hero-subtitle {
   font-size: 1.25rem;
@@ -76,12 +73,10 @@
   line-height: 1.6;
 }
 
-
 .lp-v2-hero-subtitle strong {
   color: white;
   font-weight: 700;
 }
-
 
 .lp-v2-hero-cta {
   background: white;
@@ -96,13 +91,11 @@
   transition: all 0.3s ease;
 }
 
-
 .lp-v2-hero-cta:hover {
   transform: translateY(-3px);
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
   filter: brightness(1.05);
 }
-
 
 /* Sections Styling */
 .lp-v2-section {
@@ -111,7 +104,6 @@
   margin: 0 auto;
   text-align: center;
 }
-
 
 .lp-v2-section-title {
   font-size: 2.8rem;
@@ -122,9 +114,8 @@
   display: inline-block;
 }
 
-
 .lp-v2-section-title::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -15px;
   left: 50%;
@@ -135,14 +126,12 @@
   border-radius: 10px;
 }
 
-
 .lp-v2-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 2.5rem;
   margin-top: 1rem;
 }
-
 
 /* Cards Styling */
 .lp-v2-card {
@@ -158,13 +147,11 @@
   border: 1.5px solid transparent; /* Transparent border by default to prevent layout shift */
 }
 
-
 .lp-v2-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 20px 50px rgba(99, 102, 241, 0.1);
   border-color: #6366f1; /* Purple border only on hover */
 }
-
 
 .lp-v2-card-icon {
   width: 64px;
@@ -175,7 +162,6 @@
   margin-bottom: 1.5rem;
 }
 
-
 .lp-v2-card-title {
   font-size: 1.5rem;
   font-weight: 800;
@@ -183,25 +169,33 @@
   margin-bottom: 1rem;
 }
 
-
 .lp-v2-card-text {
   color: #64748b;
   line-height: 1.6;
   font-size: 1rem;
 }
 
-
 /* Removed lp-v2-card-featured as borders are now hover-only for all cards */
 
-
 /* Icons Colors - Matching the photos */
-.lp-v2-icon-zap { color: #a855f7; }
-.lp-v2-icon-clock { color: #a855f7; }
-.lp-v2-icon-bus { color: #ec4899; }
-.lp-v2-icon-map { color: #a855f7; }
-.lp-v2-icon-shield { color: #a855f7; }
-.lp-v2-icon-ticket { color: #ec4899; }
-
+.lp-v2-icon-zap {
+  color: #a855f7;
+}
+.lp-v2-icon-clock {
+  color: #a855f7;
+}
+.lp-v2-icon-bus {
+  color: #ec4899;
+}
+.lp-v2-icon-map {
+  color: #a855f7;
+}
+.lp-v2-icon-shield {
+  color: #a855f7;
+}
+.lp-v2-icon-ticket {
+  color: #ec4899;
+}
 
 /* Steps Section specific adjustments */
 .lp-v2-steps-section {
@@ -209,12 +203,10 @@
   max-width: none;
 }
 
-
 .lp-v2-steps-container {
   max-width: 1200px;
   margin: 0 auto;
 }
-
 
 /* CTA Bottom Section */
 .lp-v2-cta-section {
@@ -223,7 +215,6 @@
   text-align: center;
 }
 
-
 .lp-v2-cta-title {
   font-size: 3rem;
   font-weight: 800;
@@ -231,14 +222,12 @@
   margin-bottom: 1.5rem;
 }
 
-
 .lp-v2-cta-subtitle {
   font-size: 1.15rem;
   color: #64748b;
   margin-bottom: 3rem;
   font-weight: 500;
 }
-
 
 .lp-v2-cta-btn {
   background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
@@ -253,42 +242,36 @@
   transition: all 0.3s ease;
 }
 
-
 .lp-v2-cta-btn:hover {
   transform: scale(1.05);
   box-shadow: 0 15px 35px rgba(99, 102, 241, 0.4);
 }
-
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
   .lp-v2-hero-title {
     font-size: 2.5rem;
   }
- 
+
   .lp-v2-section-title {
     font-size: 2.2rem;
   }
- 
+
   .lp-v2-hero-section {
     padding: 6rem 1.5rem;
   }
 }
 
-
 @media (max-width: 480px) {
   .lp-v2-hero-title {
     font-size: 2rem;
   }
- 
+
   .lp-v2-grid {
     grid-template-columns: 1fr;
   }
- 
+
   .lp-v2-card {
     padding: 2rem 1.5rem;
   }
 }
-
-
-

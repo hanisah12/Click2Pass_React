@@ -21,10 +21,18 @@ const SuccessPage = () => {
   };
 
   const getDaysLeft = () => {
-    if (!data?.validTill) return "-";
+    if (!data?.validTill || !data?.validFrom) return "-";
     const today = new Date();
+    const start = new Date(data.validFrom);
     const end = new Date(data.validTill);
-    const diff = Math.ceil((end - today) / (1000 * 60 * 60 * 24));
+
+    today.setHours(0, 0, 0, 0);
+    start.setHours(0, 0, 0, 0);
+    end.setHours(0, 0, 0, 0);
+
+    const referenceDate = today < start ? start : today;
+    const diff = Math.ceil((end - referenceDate) / (1000 * 60 * 60 * 24));
+
     return diff > 0 ? diff + " Days" : "Expired";
   };
 
