@@ -1,59 +1,22 @@
 import React, { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { User, CreditCard, Lock, LogOut, Eye, EyeOff } from "lucide-react";
+import Sidebar from "../components/Sidebar";
 import "../style/edit-profile.css";
+
 
 const EditProfile = () => {
   const [showPassword, setShowPassword] = useState(false);
 
+
   return (
     <div className="edit-v2-page">
-   
+
 
       <div className="edit-v2-wrapper">
         <div className="edit-v2-layout">
-          {/* Sidebar */}
-          <aside className="edit-v2-sidebar">
-            <div className="edit-v2-user-box">
-              <div className="edit-v2-avatar">
-                <User size={32} />
-              </div>
-              <div className="edit-v2-welcome">
-                <span>Welcome,</span>
-                <div className="edit-v2-username">Hanisha</div>
-              </div>
-            </div>
+          <Sidebar prefix="edit-v2" />
 
-            <nav className="edit-v2-menu">
-              <NavLink
-                to="/profile"
-                className={({ isActive }) =>
-                  `edit-v2-menu-item ${isActive ? "active" : ""}`
-                }
-              >
-                <User size={18} /> Profile
-              </NavLink>
-              <NavLink
-                to="/my-passes"
-                className={({ isActive }) =>
-                  `edit-v2-menu-item ${isActive ? "active" : ""}`
-                }
-              >
-                <CreditCard size={18} /> My Passes
-              </NavLink>
-              <NavLink
-                to="/edit-profile"
-                className={({ isActive }) =>
-                  `edit-v2-menu-item ${isActive ? "active" : ""}`
-                }
-              >
-                <Lock size={18} /> Edit Profile
-              </NavLink>
-              <Link to="/" className="edit-v2-menu-item">
-                <LogOut size={18} /> Logout
-              </Link>
-            </nav>
-          </aside>
 
           {/* Main Content */}
           <main className="edit-v2-content">
@@ -63,6 +26,7 @@ const EditProfile = () => {
                 Update your personal details securely
               </p>
             </div>
+
 
             <form className="edit-v2-form-box">
               <div className="edit-v2-group">
@@ -75,6 +39,7 @@ const EditProfile = () => {
                 />
               </div>
 
+
               <div className="edit-v2-group">
                 <label className="edit-v2-label">Mobile Number</label>
                 <input
@@ -85,7 +50,9 @@ const EditProfile = () => {
                 />
               </div>
 
+
               <hr className="edit-v2-divider" />
+
 
               <div className="edit-v2-group">
                 <label className="edit-v2-label">
@@ -110,6 +77,7 @@ const EditProfile = () => {
                 </p>
               </div>
 
+
               <button type="submit" className="edit-v2-btn">
                 Save Changes
               </button>
@@ -118,9 +86,13 @@ const EditProfile = () => {
         </div>
       </div>
 
-   
+
     </div>
   );
 };
 
+
 export default EditProfile;
+
+
+

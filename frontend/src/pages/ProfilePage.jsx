@@ -1,57 +1,19 @@
 import React from "react";
 import { NavLink, Link } from "react-router-dom";
 import { User, CreditCard, Edit, LogOut } from "lucide-react";
+import Sidebar from "../components/Sidebar";
 import "../style/profile-page.css";
+
 
 const ProfilePage = () => {
   return (
     <div className="prof-v2-page">
-     
+
 
       <div className="prof-v2-wrapper">
         <div className="prof-v2-layout">
-          {/* Sidebar */}
-          <aside className="prof-v2-sidebar">
-            <div className="prof-v2-user-box">
-              <div className="prof-v2-avatar">
-                <User size={32} />
-              </div>
-              <div className="prof-v2-welcome">
-                <span>Welcome,</span>
-                <div className="prof-v2-username">Hanisha</div>
-              </div>
-            </div>
+          <Sidebar prefix="prof-v2" />
 
-            <nav className="prof-v2-menu">
-              <NavLink
-                to="/profile"
-                className={({ isActive }) =>
-                  `prof-v2-menu-item ${isActive ? "active" : ""}`
-                }
-              >
-                <User size={18} /> Profile
-              </NavLink>
-              <NavLink
-                to="/my-passes"
-                className={({ isActive }) =>
-                  `prof-v2-menu-item ${isActive ? "active" : ""}`
-                }
-              >
-                <CreditCard size={18} /> My Passes
-              </NavLink>
-              <NavLink
-                to="/edit-profile"
-                className={({ isActive }) =>
-                  `prof-v2-menu-item ${isActive ? "active" : ""}`
-                }
-              >
-                <Edit size={18} /> Edit Profile
-              </NavLink>
-              <Link to="/" className="prof-v2-menu-item">
-                <LogOut size={18} /> Logout
-              </Link>
-            </nav>
-          </aside>
 
           {/* Main Content */}
           <main className="prof-v2-content">
@@ -61,6 +23,7 @@ const ProfilePage = () => {
                 View and manage your personal information
               </p>
             </div>
+
 
             <div className="prof-v2-details-box">
               <div className="prof-v2-field">
@@ -73,6 +36,7 @@ const ProfilePage = () => {
                 />
               </div>
 
+
               <div className="prof-v2-field">
                 <label className="prof-v2-label">Email Address</label>
                 <input
@@ -83,6 +47,7 @@ const ProfilePage = () => {
                 />
               </div>
 
+
               <div className="prof-v2-field">
                 <label className="prof-v2-label">Mobile Number</label>
                 <input
@@ -92,6 +57,7 @@ const ProfilePage = () => {
                   readOnly
                 />
               </div>
+
 
               <Link
                 to="/edit-profile"
@@ -105,9 +71,13 @@ const ProfilePage = () => {
         </div>
       </div>
 
-   
+
     </div>
   );
 };
 
+
 export default ProfilePage;
+
+
+
