@@ -1,12 +1,10 @@
 import React from "react";
-import NavBar from "../components/NavBar";
-import Footer from "../components/Footer";
 import "../style/signup-page.css";
 
 const SignupPage = () => {
   return (
     <div>
-      <NavBar />
+ 
       <div className="form-container">
         <div className="login-card">
           <h2 className="form-title">Create Account</h2>
@@ -75,7 +73,7 @@ const SignupPage = () => {
           </p>
         </div>
       </div>
-      <Footer />
+   
     </div>
   );
 };

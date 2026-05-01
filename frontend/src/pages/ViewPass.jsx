@@ -1,6 +1,4 @@
 import React from "react";
-import NavBar from "../components/NavBar";
-import Footer from "../components/Footer";
 import { useLocation, Link } from "react-router-dom";
 import { CheckCircle2, Mail, ArrowRight } from "lucide-react";
 import "../style/view-pass.css";
@@ -44,7 +42,7 @@ const ViewPass = () => {
 
   return (
     <div className="vp-v2-page">
-      <NavBar />
+       
 
       <div className="vp-v2-wrapper">
         <div className="vp-v2-container">
@@ -137,7 +135,7 @@ const ViewPass = () => {
         </div>
       </div>
 
-      <Footer />
+      
     </div>
   );
 };

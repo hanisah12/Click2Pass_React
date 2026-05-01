@@ -9,6 +9,8 @@ import SignupPage from "../pages/SignupPage";
 import SuccessPage from "../pages/SuccessPage";
 import ViewPass from "../pages/ViewPass";
 import FormPage from "../pages/FormPage";
+import NotFound from "../pages/NotFound";
+
 
 const AppRoutes = [
   {
@@ -55,7 +57,14 @@ const AppRoutes = [
         path: "/form",
         element: <FormPage />,
       },
+      {
+        path: "*",
+        element: <NotFound />,
+      },
     ],
   },
 ];
 export default AppRoutes;
+
+
+

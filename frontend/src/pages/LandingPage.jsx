@@ -1,6 +1,4 @@
 import React from "react";
-import NavBar from "../components/NavBar";
-import Footer from "../components/Footer";
 import { useNavigate } from "react-router-dom";
 import { Zap, Clock, Bus, MapPinned, Shield, Ticket } from "lucide-react";
 import "../style/landing-page.css";
@@ -10,7 +8,7 @@ const LandingPage = () => {
 
   return (
     <div className="lp-v2-landing-page">
-      <NavBar />
+ 
 
       {/* Hero Section */}
       <section className="lp-v2-hero-section">
@@ -120,7 +118,7 @@ const LandingPage = () => {
         </button>
       </section>
 
-      <Footer />
+  
     </div>
   );
 };

@@ -1,6 +1,4 @@
 import React from "react";
-import NavBar from "../components/NavBar";
-import Footer from "../components/Footer";
 import { NavLink, Link } from "react-router-dom";
 import { User, CreditCard, Edit, LogOut } from "lucide-react";
 import "../style/profile-page.css";
@@ -8,7 +6,7 @@ import "../style/profile-page.css";
 const ProfilePage = () => {
   return (
     <div className="prof-v2-page">
-      <NavBar />
+     
 
       <div className="prof-v2-wrapper">
         <div className="prof-v2-layout">
@@ -107,7 +105,7 @@ const ProfilePage = () => {
         </div>
       </div>
 
-      <Footer />
+   
     </div>
   );
 };

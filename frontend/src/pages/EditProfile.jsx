@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import NavBar from "../components/NavBar";
-import Footer from "../components/Footer";
 import { NavLink, Link } from "react-router-dom";
 import { User, CreditCard, Lock, LogOut, Eye, EyeOff } from "lucide-react";
 import "../style/edit-profile.css";
@@ -10,7 +8,7 @@ const EditProfile = () => {
 
   return (
     <div className="edit-v2-page">
-      <NavBar />
+   
 
       <div className="edit-v2-wrapper">
         <div className="edit-v2-layout">
@@ -120,7 +118,7 @@ const EditProfile = () => {
         </div>
       </div>
 
-      <Footer />
+   
     </div>
   );
 };

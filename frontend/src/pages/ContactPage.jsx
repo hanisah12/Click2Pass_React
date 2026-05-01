@@ -1,12 +1,10 @@
 import React from "react";
-import NavBar from "../components/NavBar";
-import Footer from "../components/Footer";
 import "../style/contact-page.css";
 
 const ContactPage = () => {
   return (
     <div className="cp-v2-page">
-      <NavBar />
+   
 
       <div className="cp-v2-wrapper">
         <div className="cp-v2-card">
@@ -55,7 +53,7 @@ const ContactPage = () => {
         </div>
       </div>
 
-      <Footer />
+ 
     </div>
   );
 };

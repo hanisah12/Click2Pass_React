@@ -1,6 +1,4 @@
 import React from "react";
-import NavBar from "../components/NavBar";
-import Footer from "../components/Footer";
 import { useLocation, Link } from "react-router-dom";
 import { CheckCircle2, ArrowRight } from "lucide-react";
 import "../style/success-page.css";
@@ -38,7 +36,7 @@ const SuccessPage = () => {
 
   return (
     <div className="success-v2-page">
-      <NavBar />
+   
 
       <div className="success-v2-wrapper">
         <div className="success-v2-container">
@@ -117,7 +115,7 @@ const SuccessPage = () => {
         </div>
       </div>
 
-      <Footer />
+     
     </div>
   );
 };

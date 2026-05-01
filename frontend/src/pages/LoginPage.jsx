@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import NavBar from "../components/NavBar";
-import Footer from "../components/Footer";
 import { Eye, EyeOff } from "lucide-react";
 import "../style/login-page.css";
 
@@ -22,7 +20,7 @@ const LoginPage = () => {
 
   return (
     <div className="auth-v2-page-wrapper">
-      <NavBar />
+     
       <div className="auth-v2-main-container">
         <div className="auth-v2-login-card">
           <div className="auth-v2-card-header">
@@ -82,7 +80,7 @@ const LoginPage = () => {
           </div>
         </div>
       </div>
-      <Footer />
+    
     </div>
   );
 };

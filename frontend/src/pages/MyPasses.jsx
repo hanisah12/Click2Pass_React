@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import NavBar from "../components/NavBar";
-import Footer from "../components/Footer";
 import { useNavigate } from "react-router-dom";
 import "../style/my-passes.css";
 
@@ -39,7 +37,7 @@ const MyPasses = () => {
 
   return (
     <div className="mp-v2-page">
-      <NavBar />
+   
 
       <div className="mp-v2-wrapper">
         <header className="mp-v2-header">
@@ -106,7 +104,7 @@ const MyPasses = () => {
         </div>
       </div>
 
-      <Footer />
+     
     </div>
   );
 };
