@@ -6,11 +6,13 @@ import { User, CreditCard, Edit, Lock, LogOut } from "lucide-react";
 const Sidebar = ({ prefix = "prof-v2", username = "Hanisha" }) => {
   const navigate = useNavigate();
 
-  const handleLogout = (event) => {
-    event.preventDefault();
+
+  const handleLogout = (e) => {
+    e.preventDefault();
     localStorage.clear();
     navigate("/");
   };
+
 
   return (
     <aside className={`${prefix}-sidebar`}>
@@ -50,13 +52,9 @@ const Sidebar = ({ prefix = "prof-v2", username = "Hanisha" }) => {
         >
           {prefix === "edit-v2" ? <Lock size={18} /> : <Edit size={18} />} Edit Profile
         </NavLink>
-        <Link
-          to="/"
-          className={`${prefix}-menu-item`}
-          onClick={handleLogout}
-        >
+        <a href="/" onClick={handleLogout} className={`${prefix}-menu-item`}>
           <LogOut size={18} /> Logout
-        </Link>
+        </a>
       </nav>
     </aside>
   );
