@@ -176,7 +176,7 @@ const SignupPage = () => {
 
           <p className="signup-footer-text">
             Already have an account?
-            <Link to="/login" className="signup-footer-link">
+            <Link to="/" className="signup-footer-link">
               Login here
             </Link>
           </p>
