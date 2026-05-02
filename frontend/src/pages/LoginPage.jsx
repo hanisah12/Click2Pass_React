@@ -14,25 +14,49 @@ const LoginPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+   
+    localStorage.clear();
+
+
     try {
       const response = await fetch(`${API_BASE}/users/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ email: email.trim(), password }),
       });
-      const data = await response.json();
-      if (response.ok) {
-        localStorage.setItem("user_id", data.user_id || data.id);
-        localStorage.setItem("user_name", data.name || data.username);
-        localStorage.setItem("user_email", data.email || email);
-        localStorage.setItem("user_phone", data.phone || "");
-        navigate("/landing-page");
-      } else {
-        alert(data.message || "Login failed");
+
+
+      let user;
+      const text = await response.text();
+      try {
+        user = JSON.parse(text);
+      } catch (err) {
+        console.error("Server returned non-JSON:", text);
+        alert("Server Error (Non-JSON): " + text.substring(0, 100));
+        return;
       }
+
+
+      if (!response.ok) {
+        alert(user.detail || user.message || "Login failed");
+        return;
+      }
+
+
+      localStorage.setItem("user_id", user.user_id || user.id);
+      if (user.token) localStorage.setItem("token", user.token);
+      localStorage.setItem("user", JSON.stringify(user));
+     
+      // Preserve existing profile logic
+      localStorage.setItem("user_name", user.name || user.username || "");
+      localStorage.setItem("user_email", user.email || email.trim());
+      localStorage.setItem("user_phone", user.phone || "");
+
+
+      navigate("/landing-page");
     } catch (error) {
-      console.error("Login error:", error);
-      alert("An error occurred. Please try again.");
+      console.error("Login Error:", error);
+      alert("Server not reachable: " + error.message);
     }
   };
 
@@ -73,6 +97,7 @@ const LoginPage = () => {
                   placeholder="Enter your password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
+                  style={password.length >= 8 ? { borderColor: "green", boxShadow: "0 0 5px green" } : {}}
                   required
                 />
                 <button
@@ -113,8 +138,5 @@ const LoginPage = () => {
 
 
 export default LoginPage;
-
-
-
 
 

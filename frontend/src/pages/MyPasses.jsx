@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from "react";
+
+ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import PassCard from "../components/PassCard";
 import "../style/my-passes.css";
+import API_BASE from "../config"; // import config
 
 
 const MyPasses = () => {
@@ -10,13 +12,27 @@ const MyPasses = () => {
 
 
   useEffect(() => {
-    const storedPasses = JSON.parse(localStorage.getItem("passes")) || [];
-    setPasses(storedPasses);
-  }, []);
+    const userId = localStorage.getItem("user_id");
+    const token = localStorage.getItem("token");
+    if (!userId) {
+      navigate("/login");
+      return;
+    }
+    fetch(`${API_BASE}/passes/user/${userId}`, {
+      headers: {
+        "Authorization": `Bearer ${token}`
+      }
+    })
+      .then((res) => res.json())
+      .then((data) => setPasses(data))
+      .catch((err) => console.log(err));
+  }, [navigate]);
 
 
   const getDaysRemaining = (validFrom, validTill) => {
     if (!validTill || !validFrom) return 0;
+
+
     const today = new Date();
     const start = new Date(validFrom);
     const till = new Date(validTill);
@@ -29,10 +45,9 @@ const MyPasses = () => {
 
     const referenceDate = today < start ? start : today;
     const diffTime = till - referenceDate;
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
 
-    return diffDays;
+    return Math.ceil(diffTime / (1000 * 60 * 60 * 24));
   };
 
 
@@ -48,23 +63,16 @@ const MyPasses = () => {
       <div className="mp-v2-wrapper">
         <header className="mp-v2-header">
           <h2 className="mp-v2-title">My Active Passes</h2>
-          <p className="mp-v2-subtitle">
-            Your active bus passes and travel history
-          </p>
         </header>
 
 
         <div className="mp-v2-container">
           {passes.length === 0 ? (
-            <div className="mp-v2-card" style={{ textAlign: "center" }}>
-              <p className="mp-v2-subtitle">
-                No active passes found. Apply for a new pass to get started.
-              </p>
-            </div>
+            <p>No passes found</p>
           ) : (
             passes.map((pass) => (
               <PassCard
-                key={pass.id}
+                key={pass.pass_id}
                 pass={pass}
                 getPassTypeLabel={getPassTypeLabel}
                 getDaysRemaining={getDaysRemaining}
@@ -79,6 +87,7 @@ const MyPasses = () => {
 
 
 export default MyPasses;
+
 
 
 
