@@ -23,7 +23,9 @@ const ContactPage = () => {
         if (user.email) {
           setFormData((prev) => ({ ...prev, email: user.email }));
         }
-      } catch (e) {}
+      } catch (err) {
+        console.log(err)
+      }
     }
   }, []);
 
@@ -51,7 +53,9 @@ const ContactPage = () => {
         const userObj = JSON.parse(userStr);
         if (userObj.name) userName = userObj.name;
       }
-    } catch (e) {}
+    } catch (err) {
+      console.log(err)
+    }
 
 
     const payload = {

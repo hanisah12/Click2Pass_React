@@ -6,7 +6,7 @@ import "../style/view-pass.css";
 const ViewPass = () => {
   const location = useLocation();
   const data =
-    location.state || JSON.parse(localStorage.getItem("passes"))?.slice(-1)[0];
+    location.state || JSON.parse(localStorage.getItem("last_pass"));
 
   const formatDate = (dateString) => {
     if (!dateString) return "-";
@@ -19,31 +19,26 @@ const ViewPass = () => {
   };
 
   const getDaysLeft = () => {
-    if (!data?.validTill || !data?.validFrom) return "—";
+    const validFrom = data?.valid_from || data?.validFrom;
+    const validTill = data?.valid_till || data?.validTill;
+
+    if (!validTill || !validFrom) return "—";
     const today = new Date();
-    const start = new Date(data.validFrom);
-    const end = new Date(data.validTill);
+    const start = new Date(validFrom);
+    const end = new Date(validTill);
 
     today.setHours(0, 0, 0, 0);
     start.setHours(0, 0, 0, 0);
     end.setHours(0, 0, 0, 0);
 
-    // If today is before the start date, calculate the full duration of the pass
     const referenceDate = today < start ? start : today;
-
     const diff = Math.ceil((end - referenceDate) / (1000 * 60 * 60 * 24));
-
-    if (today < start) {
-      return diff + " Days";
-    }
 
     return diff > 0 ? diff + " Days" : "Expired";
   };
 
   return (
     <div className="vp-v2-page">
-       
-
       <div className="vp-v2-wrapper">
         <div className="vp-v2-container">
           <div className="vp-v2-card">
@@ -58,9 +53,7 @@ const ViewPass = () => {
             </div>
 
             <h2 className="vp-v2-title">Digital Bus Pass</h2>
-            <p className="vp-v2-subtitle">
-              Your pass is active and valid for travel
-            </p>
+            <p className="vp-v2-subtitle">Your pass is active and valid for travel</p>
 
             <div className="vp-v2-banner">
               <Mail size={20} /> Confirmation Details Ready
@@ -70,21 +63,21 @@ const ViewPass = () => {
               <div className="vp-v2-detail-row">
                 <span className="vp-v2-label">User Name:</span>
                 <span className="vp-v2-value">
-                  {data?.fullName || data?.username || "sidhu S"}
+                  {data?.fullName || data?.username || localStorage.getItem("user_name") || "User"}
                 </span>
               </div>
 
               <div className="vp-v2-detail-row">
                 <span className="vp-v2-label">Mobile Number:</span>
                 <span className="vp-v2-value">
-                  {data?.mobileNumber || data?.phone || "9128734650"}
+                  {data?.mobileNumber || data?.phone || localStorage.getItem("user_phone") || "N/A"}
                 </span>
               </div>
 
               <div className="vp-v2-detail-row">
                 <span className="vp-v2-label">Pass Type:</span>
                 <span className="vp-v2-value">
-                  {data?.passType === "1000"
+                  {String(data?.pass_type || data?.passType) === "1000"
                     ? "₹1000 - Non-AC"
                     : "₹2000 - AC + Non-AC"}
                 </span>
@@ -93,21 +86,21 @@ const ViewPass = () => {
               <div className="vp-v2-detail-row">
                 <span className="vp-v2-label">Pass ID:</span>
                 <span className="vp-v2-value pass-id">
-                  P-{String(data?.id || "15").slice(-2)}
+                  P-{String(data?.pass_id || data?.id || "0").slice(-2)}
                 </span>
               </div>
 
               <div className="vp-v2-detail-row">
                 <span className="vp-v2-label">Valid From:</span>
                 <span className="vp-v2-value">
-                  {formatDate(data?.validFrom || "2026-04-10")}
+                  {formatDate(data?.valid_from || data?.validFrom)}
                 </span>
               </div>
 
               <div className="vp-v2-detail-row">
                 <span className="vp-v2-label">Valid Till:</span>
                 <span className="vp-v2-value">
-                  {formatDate(data?.validTill || "2026-05-10")}
+                  {formatDate(data?.valid_till || data?.validTill)}
                 </span>
               </div>
 

@@ -68,7 +68,7 @@ const SignupPage = () => {
 
       localStorage.clear();
       alert("Signup successful. Please login.");
-      navigate("/login");
+      navigate("/");
     } catch (error) {
       console.error("Signup error:", error);
       alert("Server not reachable: " + error.message);
