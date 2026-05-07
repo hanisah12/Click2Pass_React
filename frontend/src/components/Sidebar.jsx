@@ -3,7 +3,7 @@ import { NavLink, Link, useNavigate } from "react-router-dom";
 import { User, CreditCard, Edit, Lock, LogOut } from "lucide-react";
 
 
-const Sidebar = ({ prefix = "prof-v2", username = "Hanisha" }) => {
+const Sidebar = ({ prefix = "prof-v2", username = "" }) => {
   const navigate = useNavigate();
 
 
@@ -52,9 +52,9 @@ const Sidebar = ({ prefix = "prof-v2", username = "Hanisha" }) => {
         >
           {prefix === "edit-v2" ? <Lock size={18} /> : <Edit size={18} />} Edit Profile
         </NavLink>
-        <a href="/" onClick={handleLogout} className={`${prefix}-menu-item`}>
+        <NavLink to="/" onClick={handleLogout} className={`${prefix}-menu-item`}>
           <LogOut size={18} /> Logout
-        </a>
+        </NavLink>
       </nav>
     </aside>
   );

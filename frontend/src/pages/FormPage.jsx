@@ -8,7 +8,7 @@ const FormPage = () => {
     <div>
  
       <BusPassForm />
-    
+
     </div>
   );
 };
