@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import API_BASE from "../config";
 import "../style/contact-page.css";
 
-
 const ContactPage = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -11,9 +10,8 @@ const ContactPage = () => {
     subject: "",
     message: "",
   });
- 
-  const isLoggedIn = !!localStorage.getItem("user_id");
 
+  const isLoggedIn = !!localStorage.getItem("user_id");
 
   useEffect(() => {
     const userStr = localStorage.getItem("user");
@@ -24,27 +22,24 @@ const ContactPage = () => {
           setFormData((prev) => ({ ...prev, email: user.email }));
         }
       } catch (err) {
-        console.log(err)
+        console.log(err);
       }
     }
   }, []);
-
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     const userId = localStorage.getItem("user_id");
-   
+
     if (!userId) {
       alert("Please login to send a message");
       navigate("/");
       return;
     }
-
 
     let userName = "User";
     try {
@@ -54,9 +49,8 @@ const ContactPage = () => {
         if (userObj.name) userName = userObj.name;
       }
     } catch (err) {
-      console.log(err)
+      console.log(err);
     }
-
 
     const payload = {
       user_id: Number(userId),
@@ -66,26 +60,24 @@ const ContactPage = () => {
       message: formData.message,
     };
 
-
     try {
       const response = await fetch(`${API_BASE}/messages/create`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
-     
+
       if (!response.ok) {
         alert("Failed to send message");
         return;
       }
-     
+
       alert("Message sent successfully!");
       setFormData((prev) => ({ ...prev, subject: "", message: "" }));
     } catch (error) {
       alert("Server not reachable");
     }
   };
-
 
   return (
     <div className="cp-v2-page">
@@ -98,7 +90,6 @@ const ContactPage = () => {
             </p>
           </header>
 
-
           <form className="cp-v2-form" onSubmit={handleSubmit}>
             <div className="cp-v2-group">
               <label className="cp-v2-label">Your Email</label>
@@ -109,11 +100,14 @@ const ContactPage = () => {
                 value={formData.email}
                 onChange={handleChange}
                 readOnly={isLoggedIn}
-                style={isLoggedIn ? { backgroundColor: "#e2e8f0", cursor: "not-allowed" } : {}}
+                style={
+                  isLoggedIn
+                    ? { backgroundColor: "#e2e8f0", cursor: "not-allowed" }
+                    : {}
+                }
                 required
               />
             </div>
-
 
             <div className="cp-v2-group">
               <label className="cp-v2-label">Subject</label>
@@ -128,7 +122,6 @@ const ContactPage = () => {
               />
             </div>
 
-
             <div className="cp-v2-group">
               <label className="cp-v2-label">Message</label>
               <textarea
@@ -141,7 +134,6 @@ const ContactPage = () => {
               ></textarea>
             </div>
 
-
             <button type="submit" className="cp-v2-btn">
               Send Message
             </button>
@@ -152,8 +144,4 @@ const ContactPage = () => {
   );
 };
 
-
 export default ContactPage;
-
-
-

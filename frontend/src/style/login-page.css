@@ -14,7 +14,7 @@
   justify-content: center;
   align-items: center;
   padding: 2rem;
-  margin-top: 100px; /* More space between nav and form */
+  margin-top: 100px;
 }
 
 .auth-v2-login-card {
@@ -40,7 +40,6 @@
   }
 }
 
-/* Gradient top border exactly like the image */
 .auth-v2-login-card::before {
   content: "";
   position: absolute;
@@ -181,7 +180,6 @@
   text-decoration: underline;
 }
 
-/* Mobile Responsiveness */
 @media (max-width: 480px) {
   .auth-v2-login-card {
     padding: 2.5rem 1.5rem;

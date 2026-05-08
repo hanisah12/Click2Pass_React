@@ -6,15 +6,12 @@ import Hero from "../components/Hero";
 import CTA from "../components/CTA";
 import "../style/landing-page.css";
 
-
 const LandingPage = () => {
   const navigate = useNavigate();
-
 
   return (
     <div className="lp-v2-landing-page">
       <Hero onAction={() => navigate("/form")} />
-
 
       {/* Features Section */}
       <section className="lp-v2-section">
@@ -27,14 +24,12 @@ const LandingPage = () => {
             iconClass="lp-v2-icon-zap"
           />
 
-
           <FeatureCard
             icon={Clock}
             title="Skip the Queues"
             description="Buy your pass anytime, anywhere. No more waiting in long lines at Chennai MTC counters."
             iconClass="lp-v2-icon-clock"
           />
-
 
           <FeatureCard
             icon={Bus}
@@ -44,7 +39,6 @@ const LandingPage = () => {
           />
         </div>
       </section>
-
 
       {/* Steps Section */}
       <section className="lp-v2-section lp-v2-steps-section">
@@ -58,14 +52,12 @@ const LandingPage = () => {
               iconClass="lp-v2-icon-map"
             />
 
-
             <FeatureCard
               icon={Shield}
               title="2. Application Submission"
               description="Submit bus pass applications easily through a simple online process."
               iconClass="lp-v2-icon-shield"
             />
-
 
             <FeatureCard
               icon={Ticket}
@@ -77,14 +69,9 @@ const LandingPage = () => {
         </div>
       </section>
 
-
       <CTA onAction={() => navigate("/form")} />
     </div>
   );
 };
 
-
 export default LandingPage;
-
-
-

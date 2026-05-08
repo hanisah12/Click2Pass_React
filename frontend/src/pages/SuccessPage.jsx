@@ -5,8 +5,7 @@ import "../style/success-page.css";
 
 const SuccessPage = () => {
   const location = useLocation();
-  const data =
-    location.state || JSON.parse(localStorage.getItem("last_pass"));
+  const data = location.state || JSON.parse(localStorage.getItem("last_pass"));
 
   const formatDate = (dateString) => {
     if (!dateString) return "-";
@@ -53,7 +52,9 @@ const SuccessPage = () => {
             </div>
 
             <h2 className="success-v2-title">Pass Applied Successfully</h2>
-            <p className="success-v2-subtitle">Your transaction was successful!</p>
+            <p className="success-v2-subtitle">
+              Your transaction was successful!
+            </p>
 
             <div className="success-v2-details-table">
               <div className="success-v2-detail-row">
@@ -88,7 +89,9 @@ const SuccessPage = () => {
 
               <div className="success-v2-detail-row">
                 <span className="success-v2-label">Days Remaining:</span>
-                <span className="success-v2-value days-left">{getDaysLeft()}</span>
+                <span className="success-v2-value days-left">
+                  {getDaysLeft()}
+                </span>
               </div>
             </div>
 
@@ -109,8 +112,6 @@ const SuccessPage = () => {
           </div>
         </div>
       </div>
-
-     
     </div>
   );
 };

@@ -2,30 +2,28 @@ import React, { useState } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import "../style/navbar-footer.css";
 
-
 const NavBar = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-
   const isAuthenticated = !!localStorage.getItem("user_id");
-
 
   return (
     <nav className="nb-navbar">
       <div className="nb-container">
         <div className="nb-logo">
-          <NavLink to={isAuthenticated ? "/landing-page" : "/"} className="nb-logo-link">
+          <NavLink
+            to={isAuthenticated ? "/landing-page" : "/"}
+            className="nb-logo-link"
+          >
             Click<span>2Pass</span>
           </NavLink>
         </div>
-
 
         <div className={`nb-menu-wrapper ${isMenuOpen ? "nb-active" : ""}`}>
           <ul className="nb-nav-list">
@@ -40,7 +38,6 @@ const NavBar = () => {
                 Home
               </NavLink>
             </li>
-
 
             {isAuthenticated && (
               <>
@@ -80,7 +77,6 @@ const NavBar = () => {
               </>
             )}
 
-
             <li className="nb-nav-item">
               <NavLink
                 to="/contact"
@@ -94,25 +90,29 @@ const NavBar = () => {
             </li>
           </ul>
 
-
           {!isAuthenticated && (
             <div className="nb-auth-buttons">
               <button
                 className="nb-btn-auth"
-                onClick={() => { setIsMenuOpen(false); navigate("/signup"); }}
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  navigate("/signup");
+                }}
               >
                 Sign-Up
               </button>
               <button
                 className="nb-btn-auth"
-                onClick={() => { setIsMenuOpen(false); navigate("/"); }}
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  navigate("/");
+                }}
               >
                 Login
               </button>
             </div>
           )}
         </div>
-
 
         <button
           className={`nb-hamburger ${isMenuOpen ? "nb-active" : ""}`}
@@ -128,8 +128,4 @@ const NavBar = () => {
   );
 };
 
-
 export default NavBar;
-
-
-

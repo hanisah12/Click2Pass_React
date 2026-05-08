@@ -5,7 +5,6 @@ import Sidebar from "../components/Sidebar";
 import API_BASE from "../config";
 import "../style/profile-page.css";
 
-
 const ProfilePage = () => {
   const navigate = useNavigate();
   const [userData, setUserData] = useState({
@@ -15,14 +14,12 @@ const ProfilePage = () => {
   });
   const [loading, setLoading] = useState(true);
 
-
   useEffect(() => {
     const userStr = localStorage.getItem("user");
     if (!userStr) {
       navigate("/");
       return;
     }
-
 
     try {
       const user = JSON.parse(userStr);
@@ -37,7 +34,6 @@ const ProfilePage = () => {
       navigate("/");
     }
   }, [navigate]);
-
 
   if (loading && !userData.name) {
     return (
@@ -56,13 +52,11 @@ const ProfilePage = () => {
     );
   }
 
-
   return (
     <div className="prof-v2-page">
       <div className="prof-v2-wrapper">
         <div className="prof-v2-layout">
           <Sidebar prefix="prof-v2" username={userData.name} />
-
 
           {/* Main Content */}
           <main className="prof-v2-content">
@@ -72,7 +66,6 @@ const ProfilePage = () => {
                 View and manage your personal information
               </p>
             </div>
-
 
             <div className="prof-v2-details-box">
               <div className="prof-v2-field">
@@ -85,7 +78,6 @@ const ProfilePage = () => {
                 />
               </div>
 
-
               <div className="prof-v2-field">
                 <label className="prof-v2-label">Email Address</label>
                 <input
@@ -96,7 +88,6 @@ const ProfilePage = () => {
                 />
               </div>
 
-
               <div className="prof-v2-field">
                 <label className="prof-v2-label">Mobile Number</label>
                 <input
@@ -106,7 +97,6 @@ const ProfilePage = () => {
                   readOnly
                 />
               </div>
-
 
               <Link
                 to="/edit-profile"
@@ -123,7 +113,4 @@ const ProfilePage = () => {
   );
 };
 
-
 export default ProfilePage;
-
-

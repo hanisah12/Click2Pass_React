@@ -1,7 +1,6 @@
 import React from "react";
 import { MapPinned } from "lucide-react";
 
-
 const Hero = ({ onAction }) => {
   return (
     <section className="lp-v2-hero-section">
@@ -23,8 +22,4 @@ const Hero = ({ onAction }) => {
   );
 };
 
-
 export default Hero;
-
-
-

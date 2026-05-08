@@ -5,8 +5,7 @@ import "../style/view-pass.css";
 
 const ViewPass = () => {
   const location = useLocation();
-  const data =
-    location.state || JSON.parse(localStorage.getItem("last_pass"));
+  const data = location.state || JSON.parse(localStorage.getItem("last_pass"));
 
   const formatDate = (dateString) => {
     if (!dateString) return "-";
@@ -53,7 +52,9 @@ const ViewPass = () => {
             </div>
 
             <h2 className="vp-v2-title">Digital Bus Pass</h2>
-            <p className="vp-v2-subtitle">Your pass is active and valid for travel</p>
+            <p className="vp-v2-subtitle">
+              Your pass is active and valid for travel
+            </p>
 
             <div className="vp-v2-banner">
               <Mail size={20} /> Confirmation Details Ready
@@ -63,14 +64,20 @@ const ViewPass = () => {
               <div className="vp-v2-detail-row">
                 <span className="vp-v2-label">User Name:</span>
                 <span className="vp-v2-value">
-                  {data?.fullName || data?.username || localStorage.getItem("user_name") || "User"}
+                  {data?.fullName ||
+                    data?.username ||
+                    localStorage.getItem("user_name") ||
+                    "User"}
                 </span>
               </div>
 
               <div className="vp-v2-detail-row">
                 <span className="vp-v2-label">Mobile Number:</span>
                 <span className="vp-v2-value">
-                  {data?.mobileNumber || data?.phone || localStorage.getItem("user_phone") || "N/A"}
+                  {data?.mobileNumber ||
+                    data?.phone ||
+                    localStorage.getItem("user_phone") ||
+                    "N/A"}
                 </span>
               </div>
 
@@ -127,8 +134,6 @@ const ViewPass = () => {
           </div>
         </div>
       </div>
-
-      
     </div>
   );
 };

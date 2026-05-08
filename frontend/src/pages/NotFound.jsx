@@ -3,10 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { Home, AlertCircle } from "lucide-react";
 import "../style/not-found.css";
 
-
 const NotFound = () => {
   const navigate = useNavigate();
-
 
   return (
     <div className="nf-not-found-container">
@@ -19,7 +17,10 @@ const NotFound = () => {
         <p className="nf-description">
           Oops! The page you are looking for doesn't exist or has been moved.
         </p>
-        <button className="nf-home-btn" onClick={() => navigate("/landing-page")}>
+        <button
+          className="nf-home-btn"
+          onClick={() => navigate("/landing-page")}
+        >
           <Home size={20} /> Back to Home
         </button>
       </div>
@@ -27,8 +28,4 @@ const NotFound = () => {
   );
 };
 
-
 export default NotFound;
-
-
-

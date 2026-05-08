@@ -36,7 +36,6 @@
   overflow: hidden;
 }
 
-/* Gradient top border matching the Login page */
 .form-v2-card::before {
   content: "";
   position: absolute;
@@ -254,7 +253,6 @@
   transform: translateY(0);
 }
 
-/* Custom styles for the date picker icon */
 .form-v2-input[type="date"]::-webkit-calendar-picker-indicator {
   cursor: pointer;
   opacity: 0.5;

@@ -6,7 +6,7 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding: 120px 1.5rem 6rem; /* Increased top padding for space below nav */
+  padding: 120px 1.5rem 6rem; 
   font-family: "Inter", sans-serif;
 }
 

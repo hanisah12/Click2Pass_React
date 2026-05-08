@@ -2,17 +2,14 @@ import React from "react";
 import { NavLink, Link, useNavigate } from "react-router-dom";
 import { User, CreditCard, Edit, Lock, LogOut } from "lucide-react";
 
-
 const Sidebar = ({ prefix = "prof-v2", username = "" }) => {
   const navigate = useNavigate();
-
 
   const handleLogout = (e) => {
     e.preventDefault();
     localStorage.clear();
     navigate("/");
   };
-
 
   return (
     <aside className={`${prefix}-sidebar`}>
@@ -25,7 +22,6 @@ const Sidebar = ({ prefix = "prof-v2", username = "" }) => {
           <div className={`${prefix}-username`}>{username}</div>
         </div>
       </div>
-
 
       <nav className={`${prefix}-menu`}>
         <NavLink
@@ -50,9 +46,14 @@ const Sidebar = ({ prefix = "prof-v2", username = "" }) => {
             `${prefix}-menu-item ${isActive ? "active" : ""}`
           }
         >
-          {prefix === "edit-v2" ? <Lock size={18} /> : <Edit size={18} />} Edit Profile
+          {prefix === "edit-v2" ? <Lock size={18} /> : <Edit size={18} />} Edit
+          Profile
         </NavLink>
-        <NavLink to="/" onClick={handleLogout} className={`${prefix}-menu-item`}>
+        <NavLink
+          to="/"
+          onClick={handleLogout}
+          className={`${prefix}-menu-item`}
+        >
           <LogOut size={18} /> Logout
         </NavLink>
       </nav>
@@ -60,8 +61,4 @@ const Sidebar = ({ prefix = "prof-v2", username = "" }) => {
   );
 };
 
-
 export default Sidebar;
-
-
-

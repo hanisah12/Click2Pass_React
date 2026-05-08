@@ -4,19 +4,16 @@ import { Eye, EyeOff } from "lucide-react";
 import API_BASE from "../config";
 import "../style/login-page.css";
 
-
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-   
-    localStorage.clear();
 
+    localStorage.clear();
 
     try {
       const response = await fetch(`${API_BASE}/users/login`, {
@@ -24,7 +21,6 @@ const LoginPage = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: email.trim(), password }),
       });
-
 
       let user;
       const text = await response.text();
@@ -36,22 +32,19 @@ const LoginPage = () => {
         return;
       }
 
-
       if (!response.ok) {
         alert(user.detail || user.message || "Login failed");
         return;
       }
 
-
       localStorage.setItem("user_id", user.user_id || user.id);
       if (user.token) localStorage.setItem("token", user.token);
       localStorage.setItem("user", JSON.stringify(user));
-     
+
       // Preserve existing profile logic
       localStorage.setItem("user_name", user.name || user.username || "");
       localStorage.setItem("user_email", user.email || email.trim());
       localStorage.setItem("user_phone", user.phone || "");
-
 
       navigate("/landing-page");
     } catch (error) {
@@ -60,11 +53,9 @@ const LoginPage = () => {
     }
   };
 
-
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
-
 
   return (
     <div className="auth-v2-page-wrapper">
@@ -74,7 +65,6 @@ const LoginPage = () => {
             <h2 className="auth-v2-form-title">Login</h2>
             <p className="auth-v2-form-subtitle">Welcome back! Please login</p>
           </div>
-
 
           <form className="auth-v2-login-form" onSubmit={handleSubmit}>
             <div className="auth-v2-form-group">
@@ -88,7 +78,6 @@ const LoginPage = () => {
               />
             </div>
 
-
             <div className="auth-v2-form-group">
               <div className="auth-v2-password-wrapper">
                 <input
@@ -97,7 +86,11 @@ const LoginPage = () => {
                   placeholder="Enter your password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  style={password.length >= 8 ? { borderColor: "green", boxShadow: "0 0 5px green" } : {}}
+                  style={
+                    password.length >= 8
+                      ? { borderColor: "green", boxShadow: "0 0 5px green" }
+                      : {}
+                  }
                   required
                 />
                 <button
@@ -115,12 +108,10 @@ const LoginPage = () => {
               </div>
             </div>
 
-
             <button type="submit" className="auth-v2-submit-btn">
               Login
             </button>
           </form>
-
 
           <div className="auth-v2-card-footer">
             <p className="auth-v2-footer-text">
@@ -136,7 +127,4 @@ const LoginPage = () => {
   );
 };
 
-
 export default LoginPage;
-
-

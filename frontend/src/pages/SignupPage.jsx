@@ -4,7 +4,6 @@ import { Eye, EyeOff } from "lucide-react";
 import API_BASE from "../config";
 import "../style/signup-page.css";
 
-
 const SignupPage = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -16,30 +15,28 @@ const SignupPage = () => {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
-
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
   };
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-
-    const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    const passwordRegex =
+      /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
     if (!passwordRegex.test(formData.password)) {
-      alert("Password must be at least 8 characters long and contain at least one alphabet, one number, and one special character (@$!%*?&).");
+      alert(
+        "Password must be at least 8 characters long and contain at least one alphabet, one number, and one special character (@$!%*?&).",
+      );
       return;
     }
-
 
     const data = {
       name: formData.name.trim(),
       email: formData.email.trim(),
       phone: formData.phone.trim(),
-      password: formData.password
+      password: formData.password,
     };
-
 
     try {
       const response = await fetch(`${API_BASE}/users/create`, {
@@ -47,7 +44,6 @@ const SignupPage = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
-
 
       let result;
       const text = await response.text();
@@ -59,12 +55,10 @@ const SignupPage = () => {
         return;
       }
 
-
       if (!response.ok) {
         alert(result.detail || result.message || "Signup failed");
         return;
       }
-
 
       localStorage.clear();
       alert("Signup successful. Please login.");
@@ -75,14 +69,12 @@ const SignupPage = () => {
     }
   };
 
-
   return (
     <div>
       <div className="form-container">
         <div className="login-card">
           <h2 className="form-title">Create Account</h2>
           <p className="form-subtitle">Join us today! Please sign up</p>
-
 
           <form id="signupForm" onSubmit={handleSubmit}>
             <div className="form-group">
@@ -96,7 +88,6 @@ const SignupPage = () => {
               />
             </div>
 
-
             <div className="form-group">
               <input
                 type="email"
@@ -107,7 +98,6 @@ const SignupPage = () => {
                 required
               />
             </div>
-
 
             <div className="form-group">
               <input
@@ -121,9 +111,11 @@ const SignupPage = () => {
               />
             </div>
 
-
             <div className="form-group">
-              <div className="password-container" style={{ position: "relative" }}>
+              <div
+                className="password-container"
+                style={{ position: "relative" }}
+              >
                 <input
                   type={showPassword ? "text" : "password"}
                   id="password"
@@ -131,8 +123,15 @@ const SignupPage = () => {
                   value={formData.password}
                   onChange={handleChange}
                   style={
-                    /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(formData.password)
-                      ? { borderColor: "green", boxShadow: "0 0 5px green", paddingRight: "40px", width: "100%" }
+                    /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(
+                      formData.password,
+                    )
+                      ? {
+                          borderColor: "green",
+                          boxShadow: "0 0 5px green",
+                          paddingRight: "40px",
+                          width: "100%",
+                        }
                       : { paddingRight: "40px", width: "100%" }
                   }
                   required
@@ -149,7 +148,7 @@ const SignupPage = () => {
                     border: "none",
                     cursor: "pointer",
                     display: "flex",
-                    alignItems: "center"
+                    alignItems: "center",
                   }}
                   aria-label={showPassword ? "Hide password" : "Show password"}
                 >
@@ -162,17 +161,14 @@ const SignupPage = () => {
               </small>
             </div>
 
-
             <button type="submit" className="btn-primary">
               Sign Up
             </button>
-
 
             <p id="signupMessage" className="signup-message">
               {message}
             </p>
           </form>
-
 
           <p className="signup-footer-text">
             Already have an account?
@@ -185,6 +181,5 @@ const SignupPage = () => {
     </div>
   );
 };
-
 
 export default SignupPage;

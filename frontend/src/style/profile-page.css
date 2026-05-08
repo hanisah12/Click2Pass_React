@@ -18,7 +18,6 @@
   align-items: flex-start;
 }
 
-/* Sidebar Styling */
 .prof-v2-sidebar {
   width: 320px;
   background: #ffffff;
@@ -110,7 +109,6 @@
   border-left-color: #f6506d;
 }
 
-/* Main Content Styling */
 .prof-v2-content {
   flex-grow: 1;
   background: #ffffff;

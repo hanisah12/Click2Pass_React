@@ -8,7 +8,6 @@ const Footer = () => {
     <footer className="ft-footer">
       <div className="ft-container">
         <div className="ft-grid">
-          {/* Brand Column */}
           <div className="ft-col ft-brand">
             <h2 className="ft-logo">
               Click<span>2Pass</span>
@@ -19,7 +18,6 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* Quick Links Column */}
           <div className="ft-col">
             <h4 className="ft-title">Quick Links</h4>
             <ul className="ft-links">
@@ -35,7 +33,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Support Column */}
           <div className="ft-col">
             <h4 className="ft-title">Support</h4>
             <ul className="ft-links">
@@ -51,7 +48,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Contact Column */}
           <div className="ft-col">
             <h4 className="ft-title">Contact</h4>
             <div className="ft-contact-info">
@@ -67,7 +63,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Copyright Section */}
         <div className="ft-bottom">
           <p>© 2025 Click2Pass Chennai. All rights reserved.</p>
         </div>

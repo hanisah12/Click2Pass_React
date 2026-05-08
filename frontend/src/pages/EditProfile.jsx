@@ -5,7 +5,6 @@ import Sidebar from "../components/Sidebar";
 import API_BASE from "../config";
 import "../style/edit-profile.css";
 
-
 const EditProfile = () => {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
@@ -16,14 +15,12 @@ const EditProfile = () => {
   });
   const [loading, setLoading] = useState(true);
 
-
   useEffect(() => {
     const userStr = localStorage.getItem("user");
     if (!userStr) {
       navigate("/");
       return;
     }
-
 
     try {
       const user = JSON.parse(userStr);
@@ -38,44 +35,46 @@ const EditProfile = () => {
     }
   }, [navigate]);
 
-
-  const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-  const isPasswordValid = formData.password === "" || passwordRegex.test(formData.password);
-  const passwordStyle = (formData.password !== "" && isPasswordValid) ? { borderColor: "green", boxShadow: "0 0 5px green" } : {};
-
+  const passwordRegex =
+    /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+  const isPasswordValid =
+    formData.password === "" || passwordRegex.test(formData.password);
+  const passwordStyle =
+    formData.password !== "" && isPasswordValid
+      ? { borderColor: "green", boxShadow: "0 0 5px green" }
+      : {};
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     const userId = localStorage.getItem("user_id");
     const token = localStorage.getItem("token");
-   
+
     // Create a copy of formData and remove password if it's empty
     const updateData = { ...formData };
     if (!updateData.password) {
       delete updateData.password;
     } else {
       if (!passwordRegex.test(updateData.password)) {
-        alert("Password must be at least 8 characters long and contain at least one alphabet, one number, and one special character (@$!%*?&).");
+        alert(
+          "Password must be at least 8 characters long and contain at least one alphabet, one number, and one special character (@$!%*?&).",
+        );
         return;
       }
     }
-
 
     try {
       const response = await fetch(`${API_BASE}/users/${userId}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${token}`
+          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify(updateData),
       });
-
 
       let data;
       const text = await response.text();
@@ -85,7 +84,6 @@ const EditProfile = () => {
         alert("Server Error (Non-JSON): " + text.substring(0, 100));
         return;
       }
-
 
       if (response.ok) {
         alert("Profile updated successfully!");
@@ -98,7 +96,9 @@ const EditProfile = () => {
         localStorage.setItem("user_id", data.user_id || userId);
         navigate("/profile");
       } else {
-        alert("Update failed: " + (data.detail || data.message || "Unknown error"));
+        alert(
+          "Update failed: " + (data.detail || data.message || "Unknown error"),
+        );
       }
     } catch (error) {
       console.error("Profile update error:", error);
@@ -106,16 +106,13 @@ const EditProfile = () => {
     }
   };
 
-
   if (loading) return <div>Loading...</div>;
-
 
   return (
     <div className="edit-v2-page">
       <div className="edit-v2-wrapper">
         <div className="edit-v2-layout">
           <Sidebar prefix="edit-v2" username={formData.name} />
-
 
           <main className="edit-v2-content">
             <div className="edit-v2-header">
@@ -124,7 +121,6 @@ const EditProfile = () => {
                 Update your personal details securely
               </p>
             </div>
-
 
             <form className="edit-v2-form-box" onSubmit={handleSubmit}>
               <div className="edit-v2-group">
@@ -139,7 +135,6 @@ const EditProfile = () => {
                 />
               </div>
 
-
               <div className="edit-v2-group">
                 <label className="edit-v2-label">Mobile Number</label>
                 <input
@@ -151,9 +146,7 @@ const EditProfile = () => {
                 />
               </div>
 
-
               <hr className="edit-v2-divider" />
-
 
               <div className="edit-v2-group">
                 <label className="edit-v2-label">
@@ -182,7 +175,6 @@ const EditProfile = () => {
                 </p>
               </div>
 
-
               <button type="submit" className="edit-v2-btn">
                 Save Changes
               </button>
@@ -193,6 +185,5 @@ const EditProfile = () => {
     </div>
   );
 };
-
 
 export default EditProfile;

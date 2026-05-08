@@ -7,7 +7,6 @@
   --nb-bg: #ffffff;
   --nb-shadow:
     0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-  /* Footer Variables */
   --ft-bg: #111827;
   --ft-text: #9ca3af;
   --ft-title: #ffffff;
@@ -150,7 +149,6 @@
   }
 }
 
-/* Footer Styles */
 .ft-footer {
   background: linear-gradient(to bottom, #111827, #030712);
   color: var(--ft-text);
@@ -253,7 +251,6 @@
   color: #6b7280;
 }
 
-/* Footer Mobile Responsiveness */
 @media (max-width: 992px) {
   .ft-grid {
     grid-template-columns: 1fr 1fr;

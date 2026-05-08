@@ -11,7 +11,6 @@ import ViewPass from "../pages/ViewPass";
 import FormPage from "../pages/FormPage";
 import NotFound from "../pages/NotFound";
 
-
 const AppRoutes = [
   {
     path: "/",
@@ -65,6 +64,3 @@ const AppRoutes = [
   },
 ];
 export default AppRoutes;
-
-
-

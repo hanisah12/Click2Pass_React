@@ -6,7 +6,6 @@
   overflow-x: hidden;
 }
 
-/* Hero Section */
 .lp-v2-hero-section {
   position: relative;
   min-height: 85vh;
@@ -133,7 +132,6 @@
   margin-top: 1rem;
 }
 
-/* Cards Styling */
 .lp-v2-card {
   background: #ffffff;
   padding: 3rem 2rem;
@@ -144,13 +142,13 @@
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
-  border: 1.5px solid transparent; /* Transparent border by default to prevent layout shift */
+  border: 1.5px solid transparent;
 }
 
 .lp-v2-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 20px 50px rgba(99, 102, 241, 0.1);
-  border-color: #6366f1; /* Purple border only on hover */
+  border-color: #6366f1;
 }
 
 .lp-v2-card-icon {
@@ -175,9 +173,6 @@
   font-size: 1rem;
 }
 
-/* Removed lp-v2-card-featured as borders are now hover-only for all cards */
-
-/* Icons Colors - Matching the photos */
 .lp-v2-icon-zap {
   color: #a855f7;
 }
@@ -197,7 +192,6 @@
   color: #ec4899;
 }
 
-/* Steps Section specific adjustments */
 .lp-v2-steps-section {
   background-color: #f8fafc;
   max-width: none;
@@ -208,7 +202,6 @@
   margin: 0 auto;
 }
 
-/* CTA Bottom Section */
 .lp-v2-cta-section {
   padding: 8rem 1.5rem;
   background-color: #f8fafc;
@@ -247,7 +240,6 @@
   box-shadow: 0 15px 35px rgba(99, 102, 241, 0.4);
 }
 
-/* Mobile Responsiveness */
 @media (max-width: 768px) {
   .lp-v2-hero-title {
     font-size: 2.5rem;
