@@ -49,7 +49,7 @@ const AppRoutes = [
         element: <SuccessPage />,
       },
       {
-        path: "/view-pass",
+        path: "/view-pass/:id?",
         element: <ViewPass />,
       },
       {
