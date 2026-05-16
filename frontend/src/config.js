@@ -1,6 +1,4 @@
-const API_BASE = (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1")
-    ? "http://127.0.0.1:8000/api"
-    : "/api";
+const API_BASE = "https://click2pass-fullstack.onrender.com"
 
 
 export default API_BASE;
